@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../controller/providers/quran_provider.dart';
 
 class CustomTextFiled extends StatelessWidget {
   const CustomTextFiled({Key? key}) : super(key: key);
@@ -8,10 +11,10 @@ class CustomTextFiled extends StatelessWidget {
     return Padding(
       padding:  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child:   TextField(
-        // onChanged: (value) {
-        //   Provider.of<KoranProvider>(context, listen: false)
-        //       .getNameOfKoran(word: value);
-        // },
+        onChanged: (value) {
+          Provider.of<KoranProvider>(context, listen: false)
+              .getNameOfKoran(word: value);
+        },
 
         decoration: InputDecoration(
 
