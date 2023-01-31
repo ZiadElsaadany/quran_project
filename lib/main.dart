@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/view/home/home_view.dart';
+import 'package:quran_project/view/quran/names/names_quran_view.dart';
 
 void main() {
   runApp(const QuranApp());
@@ -17,7 +18,8 @@ class QuranApp extends StatelessWidget {
       home: const HomeView(),
       initialRoute: HomeView.id,
       routes: {
-        HomeView.id :(ctx)=>const HomeView()
+        HomeView.id :(ctx)=>const HomeView(),
+        NamesQuranView.id:(ctx)=>const NamesQuranView()
       },
     );
   }
