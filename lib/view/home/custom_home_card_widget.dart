@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
+import 'package:quran_project/view/zakah/zakah_view.dart';
 
 class CustomHomeCardWidget extends StatelessWidget {
-  const CustomHomeCardWidget({Key? key}) : super(key: key);
-
+  const CustomHomeCardWidget({Key? key, required this.index}) : super(key: key);
+final int index;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ()  {
-        Navigator.pushNamed(context, NamesQuranView.id);
+
+        Navigator.pushNamed(context,
+
+            index==0 ?  NamesQuranView.id: ZakahView.id);
       } ,
       child: Card(
         elevation:5,

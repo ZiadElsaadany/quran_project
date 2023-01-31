@@ -64,7 +64,7 @@ class HomeViewBody extends StatelessWidget {
                 crossAxisCount:3,
               ),
                 itemCount: 6,
-                itemBuilder: (ctx,index)=>const CustomHomeCardWidget()
+                itemBuilder: (ctx,index)=> CustomHomeCardWidget(index: index,)
               ),
             ), 
             Center(

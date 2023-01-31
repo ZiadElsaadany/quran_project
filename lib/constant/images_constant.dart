@@ -14,7 +14,7 @@ class ImageConstant {
   static const String mosque =  'assets/images/aryan-ghauri-5F98r2fRgJE-unsplash-removebg-preview.png';
   static const String islamic =  'assets/images/islamic.png';
   static const String sleeping =  'assets/images/sleeping.png';
-static const String money = 'assets/images/Money_asset.png';
+static const String money = 'asset/images/Money_asset.png';
 static const String business = 'assets/images/1737366_business_money_pound_icon.png';
 
 static const String logo = 'assets/images/logo2.png';
