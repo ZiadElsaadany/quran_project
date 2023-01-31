@@ -4,6 +4,10 @@ import 'package:quran_project/view/zakah/zakah_view.dart';
 
 class CustomHomeCardWidget extends StatelessWidget {
   const CustomHomeCardWidget({Key? key, required this.index}) : super(key: key);
+  final List<String> lst = const ['السبحة', 'الاحاديث','القران الكريم',
+
+  'مواعيد الصلاة' , 'الأذكار','القبلة',
+  ] ;
 final int index;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +32,7 @@ final int index;
                 child: Image.asset('asset/images/allah.jpg')),
             Expanded(
                 flex: 1,
-                child: const Text('القران')),
+                child:  Text(lst[index])),
           ],
         ),
       ),

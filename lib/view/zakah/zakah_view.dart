@@ -9,7 +9,7 @@ static const String  id= 'Zakah View';
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: customAppBar(context, 'اختار نوع الزكاة'),
+      appBar: customAppBar(context, 'الزكاة'),
       body: const ZakahViewBody(),
     );
   }
