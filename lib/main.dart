@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_project/view/home_view.dart';
+import 'package:quran_project/view/home/home_view.dart';
 
 void main() {
   runApp(const QuranApp());
@@ -11,6 +11,9 @@ class QuranApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Cairo'
+      ),
       home: const HomeView(),
       initialRoute: HomeView.id,
       routes: {
