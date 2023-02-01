@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/home/home_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
@@ -26,7 +27,8 @@ class QuranApp extends StatelessWidget {
         routes: {
           HomeView.id :(ctx)=>const HomeView(),
           NamesQuranView.id:(ctx)=>const NamesQuranView(),
-          ZakahView.id : (  ctx ) => const ZakahView()
+          ZakahView.id : (  ctx ) => const ZakahView(),
+          AzkarView.id : (  ctx ) => const AzkarView()
         },
       ),
     );

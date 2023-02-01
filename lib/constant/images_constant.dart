@@ -10,7 +10,7 @@ class ImageConstant {
   static const String plygon2 =  'assets/images/Polygon 8.png';
   static const String matar =  'assets/images/doaa_images/mattar.png';
   static const String noDoaa =  'assets/images/doaa_images/nodoaa.png';
-  static const String azkarSabah =  'assets/images/azkar_Sabah.png';
+  static const String azkarSabah =  'asset/images/azkar_Sabah.png';
   static const String mosque =  'assets/images/aryan-ghauri-5F98r2fRgJE-unsplash-removebg-preview.png';
   static const String islamic =  'assets/images/islamic.png';
   static const String sleeping =  'assets/images/sleeping.png';
