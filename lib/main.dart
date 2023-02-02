@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/constant/color_constant.dart';
+import 'package:quran_project/view/azkar/azkar_details_view.dart';
 import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/home/home_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
@@ -20,7 +22,8 @@ class QuranApp extends StatelessWidget {
       create: (ctx)=>KoranProvider(),
       child: MaterialApp(
         theme: ThemeData(
-          fontFamily: 'Cairo'
+          fontFamily: 'Cairo',
+          primaryColor: AppColorsConstant.primaryColor
         ),
         home: const HomeView(),
         initialRoute: HomeView.id,
@@ -28,7 +31,7 @@ class QuranApp extends StatelessWidget {
           HomeView.id :(ctx)=>const HomeView(),
           NamesQuranView.id:(ctx)=>const NamesQuranView(),
           ZakahView.id : (  ctx ) => const ZakahView(),
-          AzkarView.id : (  ctx ) => const AzkarView()
+          AzkarView.id : (  ctx ) => const AzkarView(),
         },
       ),
     );

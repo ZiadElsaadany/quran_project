@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_project/constant/images_constant.dart';
 import 'package:quran_project/view/home/custom_home_card_widget.dart';
 import 'package:quran_project/view/home/quran_daily_widget.dart';
 
@@ -10,6 +11,8 @@ class HomeViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.03),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -40,7 +43,9 @@ class HomeViewBody extends StatelessWidget {
 
                   ],
                 ),
-                Image.asset('asset/images/Screenshot (1).png',height: 100),
+                Image.asset(ImageConstant.image,
+                  height: MediaQuery.of(context).size.height*0.15,
+                ),
 
 
               ],
@@ -57,19 +62,22 @@ class HomeViewBody extends StatelessWidget {
           const QuranDailyWidget(),
             const SizedBox(height: 15,),
             SizedBox(
-              height: MediaQuery.of(context).size.height*0.4,
+              height: MediaQuery.of(context).size.height*0.29,
               child: GridView.builder(
+
                   physics: const BouncingScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount:3,
+                    childAspectRatio: 1.3
               ),
                 itemCount: 6,
                 itemBuilder: (ctx,index)=> CustomHomeCardWidget(index: index,)
               ),
             ), 
             Center(
-              child: Image.asset('asset/images/Screenshot (1).png',
-              width: 100,
+              child: Image.asset(ImageConstant.image,
+              width: 77,
+                height: 77,
               ),
             )
 

@@ -44,7 +44,7 @@ class ZakahViewBody extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(16),
-                          child: Image.asset(ImageConstant.money),
+                          child: Image.asset(ImageConstant.moneyIcon),
                         ),
                       ),
                     ) ,
@@ -86,7 +86,7 @@ class ZakahViewBody extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(16),
-                          child: Image.asset(ImageConstant.money),
+                          child: Image.asset(ImageConstant.moneyIcon),
                         ),
                       ),
                     ) ,
