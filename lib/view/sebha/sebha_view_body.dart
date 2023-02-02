@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_project/view/sebha/sebha_details_view.dart';
+import 'package:quran_project/view/sebha/sebha_details/sebha_details_view.dart';
 import 'package:quran_project/view/sebha/sebha_name_container.dart';
 
 class SebhaViewBody extends StatelessWidget {

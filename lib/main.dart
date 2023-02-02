@@ -6,7 +6,7 @@ import 'package:quran_project/controller/providers/sebha_provider.dart';
 import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/home/home_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
-import 'package:quran_project/view/sebha/sebha_details_view.dart';
+import 'package:quran_project/view/sebha/sebha_details/sebha_details_view.dart';
 import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
 
