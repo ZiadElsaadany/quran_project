@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../constant/images_constant.dart';
 import 'azkar_name_widget.dart';
 
 class AzkarViewBody extends StatelessWidget {
@@ -21,7 +22,12 @@ class AzkarViewBody extends StatelessWidget {
                 itemCount: 7,
               ),
             ),
-            Image.asset('asset/images/Screenshot (1).png',height: 100,)
+            Center(
+              child: Image.asset(ImageConstant.image,
+                width: MediaQuery.of(context).size.width*0.2,
+                height: MediaQuery.of(context).size.height*0.08,
+              ),
+            )
           ],
         ),
       ),

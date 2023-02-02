@@ -29,8 +29,8 @@ class QuranApp extends StatelessWidget {
         fontFamily: 'Cairo',
         primaryColor: AppColorsConstant.primaryColor,
           brightness: Brightness.light,
-        appBarTheme: const AppBarTheme(
-          color: AppColorsConstant.primaryColor
+        appBarTheme:  const AppBarTheme(
+          color: AppColorsConstant.primaryColor,
         )
       ),
       home: const HomeView(),

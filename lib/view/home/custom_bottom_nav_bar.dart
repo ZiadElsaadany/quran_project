@@ -40,7 +40,7 @@ style: TextStyle(
                 ),
                 const ItemOfBottom(
                   img: ImageConstant.sebhaIcon,
-                  title: 'السبحة',
+                  title: 'الأذكار',
                   index: 3,
                 ),
                 const ItemOfBottom(
