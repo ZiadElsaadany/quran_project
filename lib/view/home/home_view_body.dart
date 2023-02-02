@@ -14,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width*0.05 ,
-        vertical:  MediaQuery.of(context).size.height*0.03
+        vertical:  MediaQuery.of(context).size.height*0.00
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +73,7 @@ class HomeViewBody extends StatelessWidget {
             Center(
               child: Image.asset(ImageConstant.image,
                 width: MediaQuery.of(context).size.width*0.2,
-                height: MediaQuery.of(context).size.height*0.1,
+                height: MediaQuery.of(context).size.height*0.08,
               ),
             )
 

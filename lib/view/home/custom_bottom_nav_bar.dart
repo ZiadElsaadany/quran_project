@@ -1,63 +1,95 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
-
+import '../../constant/images_constant.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<BottomNavProvider>(
-      builder: (context,provider,_) {
-        return BottomAppBar( //to margin between floating and bottom
-          clipBehavior: Clip.antiAlias, //to margin between floating and bottom
-          shape: const CircularNotchedRectangle(), //to margin between floating and bottom
-          notchMargin: 5,    //to margin between floating and bottom
-          child: BottomNavigationBar(
-            currentIndex: provider.currentIndex,
+    return BottomAppBar( //to margin between floating and bottom
+elevation: 10,
 
-            onTap: (index){
-             if(  index == 2 ) {
-               return;
-             }
-              provider.changeIndex(index);
-            },
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            selectedItemColor: AppColorsConstant.primaryColor,
-            unselectedItemColor: AppColorsConstant.grey,
-            items: const [
-              BottomNavigationBarItem(
-                icon:Icon(Icons.list ) ,
-                label:  "الريسية",
-              ),
-              BottomNavigationBarItem(
-                icon:Icon(Icons.settings) ,
-                label:  "القران",
-              ) ,
-              BottomNavigationBarItem(
-                activeIcon: SizedBox(),
-                icon:SizedBox(),
-                label:  "",
-              ) ,
-              BottomNavigationBarItem(
-                icon:Icon(Icons.settings) ,
-                label:  "الأذكار",
-              ) ,
-              BottomNavigationBarItem(
-                icon:Icon(Icons.settings) ,
-                label:  "المزيد",
-              ) ,
+          child:Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+               const ItemOfBottom(
+               img: ImageConstant.image,
+                 title: 'الرئيسية',
+                 index: 0 ,
+               ),
+                  const ItemOfBottom(
+                img: ImageConstant.ahadethIcon,
+                  title: 'القران',
+                    index: 1 ,
+                ),
+                CircleAvatar(
+                  backgroundColor: AppColorsConstant.primaryColor,
+                  radius: MediaQuery.of(context).size.height*0.035,
 
-            ],
-          ),
+
+child: Text('الصلاة' ,
+style: TextStyle(
+  fontSize: MediaQuery.of(context).size.height*0.02
+),
+),
+                ),
+                const ItemOfBottom(
+                  img: ImageConstant.sebhaIcon,
+                  title: 'السبحة',
+                  index: 3,
+                ),
+                const ItemOfBottom(
+
+               img: ImageConstant.image,
+                  index: 4,
+                  title: 'المزيد',
+                ),
+               
+              ],
+            ),
+          )
         );
-      }
+
+  }
+}
+
+class ItemOfBottom extends StatelessWidget {
+  const ItemOfBottom({Key? key, required this.title, required this.img, required this.index}) : super(key: key);
+final String img ;
+final String title;
+final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return    GestureDetector(
+      onTap: ( ) {
+        Provider.of<BottomNavProvider>(context,listen: false).changeIndex(index);
+      } ,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+           ImageIcon(
+          AssetImage(img),
+            color:    index== Provider.of<BottomNavProvider>(context).currentIndex?
+               AppColorsConstant.primaryColor : AppColorsConstant.grey
+    ),
+          Text(title ,
+          style: TextStyle(
+            color: index== Provider.of<BottomNavProvider>(context).currentIndex?
+                AppColorsConstant.primaryColor : AppColorsConstant.grey
+
+          ),
+          )
+        ],
+      ),
     );
   }
 }
+
 
 

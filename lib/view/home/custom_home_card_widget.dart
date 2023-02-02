@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_project/constant/color_constant.dart';
-import 'package:quran_project/view/quran/names/names_quran_view.dart';
+
 import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
 
@@ -13,14 +12,18 @@ class CustomHomeCardWidget extends StatelessWidget {
 
   'مواعيد الصلاة' , 'الأذكار','القبلة',
   ] ;
-final int index;
-  @override
+  final List<String> images = const [
 
+ImageConstant.sebhaIcon , ImageConstant.ahadethIcon, ImageConstant.quranIcon ,
+    ImageConstant.salahTimingIcon, ImageConstant.azanIcon , ImageConstant.qiblaIcon
+  ];
+final int index;
   final TextStyle style = const TextStyle(
     color: Colors.black ,
     fontWeight: FontWeight.bold,
     // fontSize: 14
   );
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ()  {
@@ -41,8 +44,8 @@ final int index;
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(ImageConstant.quranIcon ,
-              width: MediaQuery.of(context).size.width*0.1,
+              Image.asset(images[index] ,
+              width: MediaQuery.of(context).size.width*0.06,
                 // height: MediaQuery.of(context).size.height*0.05 ,
               ),
               Text(lst[index],style: style),

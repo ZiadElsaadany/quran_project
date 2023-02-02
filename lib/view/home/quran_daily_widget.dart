@@ -25,7 +25,6 @@ class QuranDailyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding:  EdgeInsets.only(
-
           right: MediaQuery.of(context).size.width*0.025,
           left: MediaQuery.of(context).size.width*0.025,
           top: MediaQuery.of(context).size.width*0.05,
