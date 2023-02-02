@@ -9,10 +9,7 @@ class AzkarView extends StatelessWidget {
 static const String id=  'Azkar View';
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: customAppBar(context, 'أذكار المسلم'),
-      body:const AzkarViewBody() ,
-    );
+    return  const AzkarViewBody();
   }
 }
 

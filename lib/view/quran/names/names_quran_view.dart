@@ -11,11 +11,6 @@ class NamesQuranView extends StatelessWidget {
 static const String id = 'Names Quran';
   @override
   Widget build(BuildContext context) {
-    return   SafeArea(
-      child: Scaffold(
-    appBar: customAppBar(context, 'القران الكريم'),
-        body: const NamedQuranViewBody()
-      ),
-    );
+    return   const NamedQuranViewBody();
   }
 }

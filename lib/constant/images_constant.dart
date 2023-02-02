@@ -1,6 +1,6 @@
 class ImageConstant {
 
-  static const String itar =  'asset/images/itar.png';
+  static const String itar =  'asset/images/img_2.png';
 
   static const String azkarSabah =  'asset/images/azkar_Sabah.png';
   static const String quranIcon = 'asset/images/img.png';

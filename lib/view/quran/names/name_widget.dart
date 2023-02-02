@@ -29,16 +29,15 @@ final SurahNameModel modelOfSurah;
            Stack(
              alignment: Alignment.center,
              children: [
-
              Image.asset(ImageConstant.itar,
-                 height: MediaQuery.of(context).size.height*0.1,
+                 height: MediaQuery.of(context).size.height*0.04,
                  color: AppColorsConstant.primaryColor,
              ),
 
                ArabicSurahNumber(i:modelOfSurah.index ),
              ],
            ),
-
+ const SizedBox(width: 10,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -47,9 +46,9 @@ final SurahNameModel modelOfSurah;
                 Text(
                   ' سورة ${modelOfSurah.surahName}',style: TextStyle (
 
-                  color: AppColorsConstant.black.withOpacity(0.5),
+                  color: AppColorsConstant.black,
                   fontSize: MediaQuery.of(context).size.height*0.022,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),),
                 // SizedBox(height:2,),
 
@@ -71,7 +70,7 @@ textDirection: TextDirection.rtl,
             ) ,
             const Spacer(flex: 3,),
             Text( modelOfSurah.place , style: const TextStyle(
-                fontFamily: 'me_quran.ttf',
+
               color: AppColorsConstant.primaryColor,
               fontWeight: FontWeight.bold,
               fontSize: 14

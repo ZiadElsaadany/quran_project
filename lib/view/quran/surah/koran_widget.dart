@@ -21,6 +21,7 @@ final int index2 ;
             TextSpan( text: '  ${ Sowar.sowar['sowar']![index1]['verses'][index2]['content']}   ',
               style: const TextStyle(
                 fontSize: 24,
+                fontFamily: 'quran',
                 color: Color.fromARGB(196, 0, 0, 0),
               ),
             ) ,
@@ -34,6 +35,7 @@ final int index2 ;
                         TextSpan( text: ' ۝ ', style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
+                            fontFamily: 'quran',
                             color: AppColorsConstant.primaryColor
                         ),) ,
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
+import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
 
 import '../../constant/images_constant.dart';
@@ -26,7 +27,7 @@ final int index;
 
         Navigator.pushNamed(context,
 
-            index==0 ?  NamesQuranView.id :
+            index==0 ? SebhaView.id :
             index==4?
             AzkarView.id :   ZakahView.id);
       } ,

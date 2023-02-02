@@ -9,7 +9,7 @@ class ReturnBasmala extends StatelessWidget {
       child: Text(
         'بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ ',
         style: TextStyle(
-
+      fontFamily: 'quran',
             fontSize: 22,
             color: Colors.grey
         ),

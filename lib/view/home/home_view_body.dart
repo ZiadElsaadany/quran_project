@@ -8,9 +8,7 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SingleChildScrollView(
+    return  SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.03),
         child: Column(
@@ -23,21 +21,21 @@ class HomeViewBody extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                      const CircleAvatar(),
-                       const SizedBox(width: 15,),
-                      Column(
-                           children: const [
-                             Text("مرحبا بك"),
-                             Text("احمد علي"),
-                           ],
-                         )
+                        const CircleAvatar(),
+                        const SizedBox(width: 15,),
+                        Column(
+                          children: const [
+                            Text("مرحبا بك"),
+                            Text("احمد علي"),
+                          ],
+                        )
                       ],
                     ),
                     Row(
                       children: const [
                         Icon(Icons.date_range),
-                         SizedBox(width: 5,),
-                         Text('الاربعاء 7 شعبان 1443'),
+                        SizedBox(width: 5,),
+                        Text('الاربعاء 7 شعبان 1443'),
                       ],
                     ),
 
@@ -57,9 +55,9 @@ class HomeViewBody extends StatelessWidget {
                 Icon(Icons.keyboard_arrow_down_rounded),
               ],
             ),
-          SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+            SizedBox(height: MediaQuery.of(context).size.height*0.03,),
 
-          const QuranDailyWidget(),
+            const QuranDailyWidget(),
             const SizedBox(height: 15,),
             SizedBox(
               height: MediaQuery.of(context).size.height*0.29,
@@ -67,24 +65,23 @@ class HomeViewBody extends StatelessWidget {
 
                   physics: const BouncingScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount:3,
-                    childAspectRatio: 1.3
+                      crossAxisCount:3,
+                      childAspectRatio: 1.3
+                  ),
+                  itemCount: 6,
+                  itemBuilder: (ctx,index)=> CustomHomeCardWidget(index: index,)
               ),
-                itemCount: 6,
-                itemBuilder: (ctx,index)=> CustomHomeCardWidget(index: index,)
-              ),
-            ), 
+            ),
             Center(
               child: Image.asset(ImageConstant.image,
-              width: 77,
-                height: 77,
+                width: MediaQuery.of(context).size.width*0.2,
+                height: MediaQuery.of(context).size.height*0.1,
               ),
             )
 
           ],
         ),
-      ),
-    );
+      );
   }
 }
 
