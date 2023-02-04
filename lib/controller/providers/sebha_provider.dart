@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class SebhaProvider extends ChangeNotifier{
 
+ String newSebha ='';
+
+
   List<int>  countersOfSebha = [
     0,
     0,

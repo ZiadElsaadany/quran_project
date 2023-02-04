@@ -1,32 +1,35 @@
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:quran_project/constant/color_constant.dart';
 
-import '../../../controller/providers/quran_provider.dart';
 
 class CustomTextFiled extends StatelessWidget {
-  const CustomTextFiled({Key? key}) : super(key: key);
+    CustomTextFiled(
+      {Key? key, required this.hintText, this.onChanged,
+        this.icon=const SizedBox(), required this.contentPadding,
+        this.validator,
+      this.autovalidateMode = AutovalidateMode.disabled
+      }) : super(key: key);
+final  String hintText;
+final void Function(String)? onChanged;
+final Widget icon ;
+final double contentPadding;
+final String? Function(String?)? validator;
+AutovalidateMode  ? autovalidateMode ;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom ,
-      ),
-      child:   TextField(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: TextFormField(
+        validator:validator,
         cursorColor: AppColorsConstant.primaryColor,
-
-        onChanged: (value) {
-          Provider.of<KoranProvider>(context, listen: false)
-              .getNameOfKoran(word: value);
-        },
-
+        autovalidateMode: autovalidateMode,
+        onChanged: onChanged,
         decoration: InputDecoration(
-contentPadding: EdgeInsets.all(MediaQuery.of(context).size.height*0.014),
-
-            prefixIcon: const Icon(Icons.search,color: AppColorsConstant.primaryColor,),
-
-            hintText: 'ابحث عن الصورة الذي تريدها',
+contentPadding: EdgeInsets.all(MediaQuery.of(context).size.height*contentPadding),
+            prefixIcon: icon,
+            hintText: hintText,
 
             border: OutlineInputBorder(
 
@@ -36,7 +39,7 @@ contentPadding: EdgeInsets.all(MediaQuery.of(context).size.height*0.014),
 
                 ),
 
-                borderRadius: BorderRadius.circular(10
+                borderRadius: BorderRadius.circular(8
 
                 )
 

@@ -9,7 +9,7 @@ import 'package:quran_project/view/sebha/sebha_details/row_of_update_and_add.dar
 import 'package:quran_project/view/sebha/sebha_details/sebha_details_view_body.dart';
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
 
-import 'custom_elevated_button.dart';
+import '../../widgets/custom_elevated_button.dart';
 
 class SebhaDetailsView extends StatelessWidget {
   const SebhaDetailsView({Key? key}) : super(key: key);

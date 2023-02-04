@@ -5,7 +5,7 @@ import 'package:quran_project/view/sebha/sebha_details/row_of_update_and_add.dar
 
 import '../../../constant/images_constant.dart';
 import '../../../controller/providers/sebha_provider.dart';
-import 'custom_elevated_button.dart';
+import '../../widgets/custom_elevated_button.dart';
 
 class SebhaViewDetailsBody extends StatelessWidget {
   const SebhaViewDetailsBody({Key? key, required this.index}) : super(key: key);
@@ -71,9 +71,16 @@ class SebhaViewDetailsBody extends StatelessWidget {
                       height:  MediaQuery.of(context).size.height*0.17,
                     ),
                     CustomElevatedButtonOfSebha(
+                      horizontal: 0.35,
+                      vertical: 0.012,
+                      widget:  Image.asset(ImageConstant.fingerImage,
+                        alignment: Alignment.center,
+                        height: MediaQuery.of(context).size.height*0.06 ,
+                        width: MediaQuery.of(context).size.width*0.06,
+                      ),
                       onPressed: ( ) {
                         provider.plusCounter(index: index);
-                      } ,
+                      }, borderRadius: 20 ,
                     ),
                     SizedBox(
                       height:  MediaQuery.of(context).size.height*0.07,
