@@ -19,14 +19,9 @@ class _RowOfUpdateAndAddState extends State<RowOfUpdateAndAdd> {
     return Consumer<SebhaProvider>(
         builder: (context,provider,_) {
           return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-               CustomIconButton(icon: Icons.add,
-              onPressed: ( ) {
-                AddSebha.showDialogFunction(context,
-                );
-              },
-              ),
+
               CustomIconButton(icon: Icons.restart_alt,
                   onPressed: ( ){
                     provider.restartCounter(index: widget.index);

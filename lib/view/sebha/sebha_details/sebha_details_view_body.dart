@@ -4,12 +4,14 @@ import 'package:quran_project/constant/arabic_number_converter.dart';
 import 'package:quran_project/view/sebha/sebha_details/row_of_update_and_add.dart';
 
 import '../../../constant/images_constant.dart';
+import '../../../constant/size_constant.dart';
 import '../../../controller/providers/sebha_provider.dart';
 import '../../widgets/custom_elevated_button.dart';
 
 class SebhaViewDetailsBody extends StatelessWidget {
   const SebhaViewDetailsBody({Key? key, required this.index}) : super(key: key);
   final int index;
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -38,11 +40,14 @@ class SebhaViewDetailsBody extends StatelessWidget {
                       index==2? 'لا اله الا الله':
                       index==3? 'لا حول ولا قوة الا بالله':
                       index==4? 'بعد الصلاة ' :
-                      'تسابيح',
+
+                      index==5? "تسابيح":
+                      index == 6? provider.newSebha : ""
+                      ,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style:  TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 24
+                          fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.042)
                       ),
                     ),
                     SizedBox(
@@ -58,7 +63,8 @@ class SebhaViewDetailsBody extends StatelessWidget {
                           height: MediaQuery.of(context).size.height*0.18,
                         ),
 
-                        Text(provider.countersOfSebha[index].toArabicNumbers,
+                        Text(
+                          provider.countersOfSebha[index].toString().toArabicNumbers,
                           textAlign: TextAlign.center,
                           style: TextStyle(
 
