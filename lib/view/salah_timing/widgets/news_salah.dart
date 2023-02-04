@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/constant/size_constant.dart';
 
 import '../../../constant/color_constant.dart';
 import '../../../constant/images_constant.dart';
@@ -16,14 +17,15 @@ class NewsSalah extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
       margin: EdgeInsets.all(MediaQuery.of(context).size.height*0.015),
-      padding: EdgeInsets.all(MediaQuery.of(context).size.height*0.019),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.height*0.01),
       decoration: BoxDecoration(
-          color: AppColorsConstant.primaryColor,
+          color: AppColorsConstant.primaryColor.withOpacity(0.9),
           borderRadius: BorderRadius.circular(10),
-          image:  DecorationImage(
+          image:  const DecorationImage(
               image: AssetImage(
-                ImageConstant.sebhaIcon,
-              )
+                ImageConstant.newsSalahImage,
+              ),
+            alignment: Alignment.centerLeft
           )
       ),
       child: Row(
@@ -35,7 +37,9 @@ class NewsSalah extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Image.asset(ImageConstant.sebhaIcon),
+                  Image.asset(ImageConstant.newsSalahIcon, 
+                  height: returnHeightMediaQuery(ctx: context, size: 0.04),
+                  ),
                   SizedBox(width: 10,),
                   Text('الصلاة التالية   ',
 

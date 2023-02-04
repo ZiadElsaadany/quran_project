@@ -4,6 +4,7 @@ import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/doaa/doaa_view.dart';
 import 'package:quran_project/view/names_of_allah/names_of_allah_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
+import 'package:quran_project/view/salah_timing/salah_timing_view.dart';
 
 import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
@@ -13,8 +14,8 @@ import '../azkar/azkar_view.dart';
 
 class CustomHomeCardWidget extends StatelessWidget {
   const CustomHomeCardWidget({Key? key, required this.index}) : super(key: key);
-  final List<String> lst = const ['السبحة', 'الاحاديث','القران الكريم',
-
+  final List<String> lst = const [
+    'السبحة', 'الاحاديث','القران الكريم',
   'مواعيد الصلاة' , 'الأذكار','القبلة',
     'أسماء الله الحسنى' ,
     'الأدعية' ,
@@ -41,8 +42,11 @@ final int index;
 
             index==0 ? SebhaView.id :
                 index==1? AhadethView.id:
+                    index ==2? NamesQuranView.id:
+                        index==3? SalahTimingScreen.id:
             index==4?
             AzkarView.id :
+
              index==6?
              NamesOfAllahView.id:DoaaView.id);
       } ,
