@@ -13,26 +13,28 @@ class NamesOfAllahViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Directionality(
       textDirection: TextDirection.rtl,
-      child: GridView.builder(
-        padding: EdgeInsets.all(returnHeightMediaQuery(ctx: context, size: 0.02)),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 1.4
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Wrap(
+              children:
+                names.map((e) =>  GestureDetector(
+                    onTap: ( )  {
+                      showDialogFunction(context, e['name'], e['details ']);
+                    },
+                    child: ItemOfAsmaaAllah(name: e['name']))).toList()
+
+    ),
+          ),
         ),
-        itemBuilder: (ctx,index){
-        return GestureDetector(
-            onTap: ( )
-            {
-              showDialogFunction(context, index);
-            },
-            child: ItemOfAsmaaAllah(name: names[index]['name']));
-      } ,
-      itemCount: names.length,
-      ),
-    ) ;
+      )
+
+      );
   }
 }
-showDialogFunction( context, index) {
+
+showDialogFunction(BuildContext context, String title  , String  desc) {
   return   AwesomeDialog(
       buttonsBorderRadius: BorderRadius.circular(30),
       borderSide: const BorderSide (
@@ -40,7 +42,7 @@ showDialogFunction( context, index) {
       ),
       context: context,
 headerAnimationLoop: true,
-      title: names[index]['name'],
+      title:title,
       // autoHide: Duration.zero,
       transitionAnimationDuration: const Duration(milliseconds: 800),
       animType: AnimType.topSlide,
@@ -52,7 +54,7 @@ dialogType: DialogType.noHeader,
         vertical: returnHeightMediaQuery(ctx: context, size: 0.01)
         ),
         child: Text(
-            names[index]['details '] ,
+           desc ,
             textAlign: TextAlign.center,
             textDirection: TextDirection.rtl,
             style:TextStyle(

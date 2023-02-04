@@ -34,19 +34,6 @@ class _HomeViewState extends State<HomeView> {
       textDirection: TextDirection.rtl,
       child: SafeArea(
         child: Scaffold(
-          appBar:Provider.of<BottomNavProvider>(context).currentIndex==0?  customAppBar(
-              context,
-              Provider.of<BottomNavProvider>(context).currentIndex==1 ?
-              'القران الكريم':
-              Provider.of<BottomNavProvider>(context).currentIndex==2 ?
-              'مواعيد الصلاة':
-              'المزيد'
-
-                                    ) : AppBar
-            (
-            backgroundColor: Colors.transparent,
-            toolbarHeight: 0,
-          ),
 
           body:screens[Provider.of<BottomNavProvider>(context).currentIndex],
           bottomNavigationBar: const CustomBottomNavBar(),
