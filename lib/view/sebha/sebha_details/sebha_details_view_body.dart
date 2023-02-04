@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/arabic_number_converter.dart';
+import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/view/sebha/sebha_details/row_of_update_and_add.dart';
 
 import '../../../constant/images_constant.dart';
@@ -11,6 +13,7 @@ import '../../widgets/custom_elevated_button.dart';
 class SebhaViewDetailsBody extends StatelessWidget {
   const SebhaViewDetailsBody({Key? key, required this.index}) : super(key: key);
   final int index;
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +36,13 @@ class SebhaViewDetailsBody extends StatelessWidget {
                     SizedBox(
                       height:  MediaQuery.of(context).size.height*0.06,
                     ),
-                    Text(
+
+               index !=5 && index!=4?  Text(
                       index ==0? 'سبحان الله' :
                       index==1? 'الله أكبر' :
-
                       index==2? 'لا اله الا الله':
                       index==3? 'لا حول ولا قوة الا بالله':
                       index==4? 'بعد الصلاة ' :
-
-                      index==5? "تسابيح":
                       index == 6? provider.newSebha : ""
                       ,
                       textAlign: TextAlign.center,
@@ -49,7 +50,9 @@ class SebhaViewDetailsBody extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.042)
                       ),
-                    ),
+                    ):
+                    RowOfListTasbeh(index: index)
+                    ,
                     SizedBox(
                       height:  MediaQuery.of(context).size.height*0.06,
                     ),
@@ -64,9 +67,10 @@ class SebhaViewDetailsBody extends StatelessWidget {
                         ),
 
                         Text(
-                          provider.countersOfSebha[index].toString().toArabicNumbers,
+                          provider.countersOfSebha[index].toArabicNumbers,
                           textAlign: TextAlign.center,
                           style: TextStyle(
+                            color: AppColorsConstant.primaryColor,
 
                               fontSize: MediaQuery.of(context).size.height*0.055
                           ),
@@ -99,6 +103,62 @@ class SebhaViewDetailsBody extends StatelessWidget {
             }
         ),
       ),
+    );
+  }
+}
+class RowOfListTasbeh extends StatefulWidget {
+  const RowOfListTasbeh({Key? key, required this.index}) : super(key: key);
+  final int index;
+  @override
+  State<RowOfListTasbeh> createState() => _RowOfListTasbehState();
+}
+
+class _RowOfListTasbehState extends State<RowOfListTasbeh> {
+
+  @override
+  Widget build(BuildContext context) {
+    return   Consumer<SebhaProvider>(
+      builder: (context,provider,_ ) {
+        return Wrap(
+          alignment: WrapAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.center,
+          direction: Axis.horizontal,
+          children: [
+            GestureDetector(
+              onTap: ( ) {
+             widget.index == 4?
+             provider.plusAfterPrayingListCounter() :provider.plusTasabehCounter();
+              } ,
+              child: const Icon(Icons.arrow_back_ios , color: AppColorsConstant.primaryColor,
+              ),
+            ),
+            SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.04),),
+            Text(
+              widget.index == 4?
+              provider.afterPrayingList[provider.afterPrayingCounter]: provider.tasbehList[provider.tasabehCounter],
+              textAlign: TextAlign.center,
+              style:  TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.042)
+              ),
+
+            ) ,
+            SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.04),),
+            GestureDetector(
+              onTap: ( ) {
+            widget.index ==4?  provider.minusAfterPrayingList(): provider.minusTasbehCounter()  ;
+
+              },
+              child: const Icon(Icons.arrow_back_ios,
+                textDirection: TextDirection.ltr,
+                color: AppColorsConstant.primaryColor,
+              ),
+            )
+
+
+          ],
+        );
+      }
     );
   }
 }
