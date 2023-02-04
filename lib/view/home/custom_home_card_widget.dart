@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_project/constant/size_constant.dart';
 
 import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
@@ -34,22 +35,30 @@ final int index;
             index==4?
             AzkarView.id :   ZakahView.id);
       } ,
-      child: Card(
-        elevation:5,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-            side: const BorderSide(width: 0.1)
-        ),
-        child: Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(images[index] ,
-              width: MediaQuery.of(context).size.width*0.06,
-                // height: MediaQuery.of(context).size.height*0.05 ,
-              ),
-              Text(lst[index],style: style),
-            ],
+      child: SizedBox(
+        height: returnHeightMediaQuery(ctx: context, size: 0.15),
+        width: returnWidthMediaQuery(ctx: context, size: .3),
+        child: Card(
+          elevation:5,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+              side: const BorderSide(width: 0.1)
+          ),
+          child: Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(images[index] ,
+                alignment: Alignment.center,
+                height: returnHeightMediaQuery(ctx: context, size: 0.06),
+                width: MediaQuery.of(context).size.width*0.08,
+                  // height: MediaQuery.of(context).size.height*0.05 ,
+                ),
+                Text(lst[index],
+                    textAlign: TextAlign.center,
+                    style: style),
+              ],
+            ),
           ),
         ),
       ),

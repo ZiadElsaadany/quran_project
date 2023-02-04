@@ -27,9 +27,13 @@ elevation: 10,
                   title: 'القران',
                     index: 1 ,
                 ),
-                CircleAvatar(
-                  backgroundColor: AppColorsConstant.primaryColor,
-                  radius: MediaQuery.of(context).size.height*0.035,
+                GestureDetector(
+                  onTap: ( ) {
+                     Provider.of<BottomNavProvider>(context,listen: false).changeIndex(2);
+                  } ,
+                  child: CircleAvatar(
+                    backgroundColor: AppColorsConstant.primaryColor,
+                    radius: MediaQuery.of(context).size.height*0.035,
 
 
 child: Text('الصلاة' ,
@@ -37,6 +41,7 @@ style: TextStyle(
   fontSize: MediaQuery.of(context).size.height*0.02
 ),
 ),
+                  ),
                 ),
                 const ItemOfBottom(
                   img: ImageConstant.sebhaIcon,

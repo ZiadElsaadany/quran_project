@@ -47,7 +47,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text( ' عدد الاذكار ${  azkarList[widget.indexOfZekr]['azkar1'].length}') ,
-              Text( ' انهيت ${finishZekr}') ,
+              Text( ' انهيت $finishZekr') ,
 
             ],
           ),

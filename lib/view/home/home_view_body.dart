@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/images_constant.dart';
+import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/home/custom_home_card_widget.dart';
 import 'package:quran_project/view/home/quran_daily_widget.dart';
 
@@ -20,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height:MediaQuery.of(context).size.height*0.1 ,
+              height:returnHeightMediaQuery(ctx: context, size: 0.15) ,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +40,7 @@ class HomeViewBody extends StatelessWidget {
                     ],
                   ),
                   Image.asset(ImageConstant.image,
-                    height: MediaQuery.of(context).size.height*0.1,
+                    height: returnHeightMediaQuery(ctx: context, size: 0.15),
                   ),
 
 
@@ -56,24 +57,35 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: MediaQuery.of(context).size.height*0.03,),
 
             const QuranDailyWidget(),
-            const SizedBox(height: 15,),
-            SizedBox(
-              height: MediaQuery.of(context).size.height*0.29,
-              child: GridView.builder(
-
-                  physics: const BouncingScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount:3,
-                      childAspectRatio: 1.3
-                  ),
-                  itemCount: 6,
-                  itemBuilder: (ctx,index)=> CustomHomeCardWidget(index: index,)
-              ),
+             SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.03),),
+          Center(
+            child: Wrap(
+              children: const[
+                CustomHomeCardWidget(
+                  index: 0,
+                ),
+                CustomHomeCardWidget(
+                  index: 1,
+                ),
+                CustomHomeCardWidget(
+                  index: 2,
+                ),
+                CustomHomeCardWidget(
+                  index: 3,
+                ),
+                CustomHomeCardWidget(
+                  index: 4,
+                ),
+                CustomHomeCardWidget(
+                  index: 5,
+                ),
+              ],
             ),
+          ),
             Center(
               child: Image.asset(ImageConstant.image,
-                width: MediaQuery.of(context).size.width*0.2,
-                height: MediaQuery.of(context).size.height*0.08,
+                width:returnWidthMediaQuery(ctx: context, size: 0.28),
+                height: returnHeightMediaQuery(ctx: context, size: 0.1),
               ),
             )
 

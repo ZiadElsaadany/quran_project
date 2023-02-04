@@ -10,6 +10,7 @@ import 'package:quran_project/view/sebha/sebha_details/sebha_details_view.dart';
 import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
 
+import 'controller/apis/api_salahTiming.dart';
 import 'controller/providers/quran_provider.dart';
 
 void main() {
@@ -18,6 +19,7 @@ void main() {
         ChangeNotifierProvider(create: (ctx)=>KoranProvider()),
         ChangeNotifierProvider(create: (ctx)=>BottomNavProvider()),
         ChangeNotifierProvider(create: (ctx)=>SebhaProvider()),
+        ChangeNotifierProvider(create: (ctx)=>PrayingApi()),
       ],
       child: const QuranApp()));
 }

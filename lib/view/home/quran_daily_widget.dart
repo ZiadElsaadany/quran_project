@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/color_constant.dart';
+import 'package:quran_project/constant/size_constant.dart';
 
 class QuranDailyWidget extends StatelessWidget {
   const QuranDailyWidget({Key? key}) : super(key: key);
@@ -8,18 +9,17 @@ class QuranDailyWidget extends StatelessWidget {
   final  TextStyle style = const  TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
-    fontSize: 15,
   );
   final  TextStyle style1 = const  TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: 12,
+    fontFamily: 'quran'
 
   );
   final  TextStyle style2 = const  TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
-      fontSize: 9
+
   );
   @override
   Widget build(BuildContext context) {
@@ -38,13 +38,21 @@ class QuranDailyWidget extends StatelessWidget {
       child: Column(
         children: [
           Text('بسم الله الرحمن الرحيم',
-              style:style,
+              style:style.copyWith(
+                fontSize: returnHeightMediaQuery(ctx: context, size: 0.02)
+              ),
             textAlign: TextAlign.center,
           ),
           SizedBox(height: MediaQuery.of(context).size.height*0.01,),
-          Text('وَإِذْ قَالَ رَبُّكَ لِلْمَلَٰٓئِكَةِ إِنِّى جَاعِلٌ فِى ٱلْأَرْضِ خَلِيفَةً قَالُوٓا۟ أَتَجْعَلُ فِيهَا مَن يُفْسِدُ فِيهَا وَيَسْفِكُ ٱلدِّمَآءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ إِنِّىٓ أَعْلَمُ مَا لَا تَعْلَمُون',
-            style: style1,
-            textAlign: TextAlign.center,
+          Padding(
+            padding:  EdgeInsets.symmetric(
+                horizontal: returnWidthMediaQuery(ctx: context, size: 0.01)),
+            child: Text('وَإِذْ قَالَ رَبُّكَ لِلْمَلَٰٓئِكَةِ إِنِّى جَاعِلٌ فِى ٱلْأَرْضِ خَلِيفَةً قَالُوٓا۟ أَتَجْعَلُ فِيهَا مَن يُفْسِدُ فِيهَا وَيَسْفِكُ ٱلدِّمَآءَ وَنَحْنُ نُسَبِّحُ بِحَمْدِكَ وَنُقَدِّسُ لَكَ قَالَ إِنِّىٓ أَعْلَمُ مَا لَا تَعْلَمُون',
+              style: style1.copyWith(
+                fontSize: returnHeightMediaQuery(ctx: context, size: 0.02)
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
            SizedBox(height: MediaQuery.of(context).size.height*0.02,),
           Padding(
@@ -56,8 +64,12 @@ class QuranDailyWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('رقم  [11]',style: style2,),
-                Text('سورة البقرة',style: style2,),
+                Text('رقم  [11]',style: style2.copyWith(
+                  fontSize: returnHeightMediaQuery(ctx: context, size: 0.018)
+                ),),
+                Text('سورة البقرة',style: style2.copyWith(
+                    fontSize: returnHeightMediaQuery(ctx: context, size: 0.018)
+                ),),
               ],
             ),
           ),
@@ -78,7 +90,11 @@ class QuranDailyWidget extends StatelessWidget {
             children: [
               const Icon(Icons.send_rounded,color: Colors.white,textDirection: TextDirection.ltr),
               const SizedBox(width: 10,),
-              Text('مشاركة ',style: style,)
+              Text('مشاركة ',style: style.copyWith(
+
+                  fontSize: returnHeightMediaQuery(ctx: context, size: 0.02)
+
+              ),)
             ],
           )
         ],

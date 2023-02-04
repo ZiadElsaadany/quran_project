@@ -14,4 +14,9 @@ class ImageConstant {
   static const String fingerImage = 'asset/images/img_10.png';
   static const String image = 'asset/images/img_1.png';
   static const String moneyIcon = 'asset/images/Money_asset.png';
+  static const String splashIcon = 'asset/images/img_11.png';
+  static const String sabahIcon = 'asset/images/img_12.png';
+  static const String massaIcon = 'asset/images/img_13.png';
+  static const String nomIcon = 'asset/images/img_14.png';
+  static const String azkarAfterNomIcon = 'asset/images/img_15.png';
 }

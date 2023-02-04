@@ -1,8 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:quran_project/constant/azkar.dart';
+import 'package:quran_project/constant/color_constant.dart';
+import 'package:quran_project/constant/images_constant.dart';
+import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/azkar/azkar_details_view.dart';
-
+import '../../constant/azkar.dart';
 import '../../models/zekr_model.dart';
 
 class AzkarNameWidget extends StatelessWidget {
@@ -28,9 +30,17 @@ AzkarDetailsView(title: zekr.title,index: index,);
         ),
         child: Row(
           children:  [
-            ImageIcon(AssetImage(zekr.image)) ,
+            ImageIcon(AssetImage(zekr.image, ),
+            size: returnHeightMediaQuery(ctx: context, size: 0.05),
+            color:azkarList[index]['color'] ?? AppColorsConstant.primaryColor
+            ) ,
             const SizedBox(width: 10,),
-            Text(zekr.title),
+            Text(zekr.title,
+              style: TextStyle (
+                fontWeight:FontWeight.bold, 
+                fontSize: returnHeightMediaQuery(ctx: context, size: 0.021)
+              ),
+            ),
             const Spacer(),
             Icon(Icons.arrow_back_ios_rounded,
 

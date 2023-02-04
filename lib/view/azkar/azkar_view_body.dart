@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_project/constant/size_constant.dart';
 
 import '../../constant/images_constant.dart';
 import 'azkar_name_widget.dart';
@@ -14,12 +15,12 @@ class AzkarViewBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height*0.07,),
+            SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.04),),
             Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (ctx,index)=>  AzkarNameWidget(index: index,),
-                itemCount: 7,
+                itemCount: 8,
               ),
             ),
             Center(
@@ -27,7 +28,8 @@ class AzkarViewBody extends StatelessWidget {
                 width: MediaQuery.of(context).size.width*0.2,
                 height: MediaQuery.of(context).size.height*0.08,
               ),
-            )
+            ),
+            SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.04),),
           ],
         ),
       ),

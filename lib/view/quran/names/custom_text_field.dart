@@ -22,7 +22,7 @@ class CustomTextFiled extends StatelessWidget {
         },
 
         decoration: InputDecoration(
-contentPadding: EdgeInsets.all(MediaQuery.of(context).size.height*0.02),
+contentPadding: EdgeInsets.all(MediaQuery.of(context).size.height*0.014),
 
             prefixIcon: const Icon(Icons.search,color: AppColorsConstant.primaryColor,),
 
@@ -64,9 +64,7 @@ contentPadding: EdgeInsets.all(MediaQuery.of(context).size.height*0.02),
 
                 ),
 
-                borderRadius: BorderRadius.circular(10
-
-                )
+                borderRadius: BorderRadius.circular(10)
 
             )
 

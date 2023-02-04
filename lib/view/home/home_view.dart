@@ -3,8 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
 import 'package:quran_project/view/home/custom_bottom_nav_bar.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
-
-
+import 'package:quran_project/view/salah_timing/salah_timing_view.dart';
 import '../../controller/providers/quran_provider.dart';
 import '../azkar/azkar_view.dart';
 import '../widgets/custom_App_bar.dart';
@@ -29,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
   }
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = [const HomeViewBody(), const NamesQuranView(),HomeViewBody() , AzkarView(), HomeViewBody()] ;
+    List<Widget> screens = [const HomeViewBody(), const NamesQuranView(),const SalahTimingScreen() , const AzkarView(), const HomeViewBody()] ;
     return     Directionality(
       textDirection: TextDirection.rtl,
       child: SafeArea(
@@ -39,7 +38,9 @@ class _HomeViewState extends State<HomeView> {
               Provider.of<BottomNavProvider>(context).currentIndex==1 ?
               'القران الكريم':   Provider.of<BottomNavProvider>(context).currentIndex==3 ?
                   'الأذكار' :
-                  'المزيد'
+              Provider.of<BottomNavProvider>(context).currentIndex==2 ?
+              'مواعيد الصلاة':
+              'المزيد'
 
                                     ) : AppBar
             (
