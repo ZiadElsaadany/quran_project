@@ -12,11 +12,16 @@ class CustomHomeCardWidget extends StatelessWidget {
   final List<String> lst = const ['السبحة', 'الاحاديث','القران الكريم',
 
   'مواعيد الصلاة' , 'الأذكار','القبلة',
+    'أسماء الله الحسنى' ,
+    'الأدعية' ,
+    'اليوميات',
+    'الراديو'
   ] ;
   final List<String> images = const [
 
 ImageConstant.sebhaIcon , ImageConstant.ahadethIcon, ImageConstant.quranIcon ,
-    ImageConstant.salahTimingIcon, ImageConstant.azanIcon , ImageConstant.qiblaIcon
+    ImageConstant.salahTimingIcon, ImageConstant.azanIcon , ImageConstant.qiblaIcon,
+    ImageConstant.salahTimingIcon, ImageConstant.azanIcon , ImageConstant.qiblaIcon,
   ];
 final int index;
   final TextStyle style = const TextStyle(
@@ -28,7 +33,6 @@ final int index;
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: ()  {
-
         Navigator.pushNamed(context,
 
             index==0 ? SebhaView.id :
@@ -44,21 +48,19 @@ final int index;
               borderRadius: BorderRadius.circular(15),
               side: const BorderSide(width: 0.1)
           ),
-          child: Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(images[index] ,
-                alignment: Alignment.center,
-                height: returnHeightMediaQuery(ctx: context, size: 0.06),
-                width: MediaQuery.of(context).size.width*0.08,
-                  // height: MediaQuery.of(context).size.height*0.05 ,
-                ),
-                Text(lst[index],
-                    textAlign: TextAlign.center,
-                    style: style),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(images[index] ,
+              alignment: Alignment.center,
+              height: returnHeightMediaQuery(ctx: context, size: 0.06),
+              width: MediaQuery.of(context).size.width*0.08,
+                // height: MediaQuery.of(context).size.height*0.05 ,
+              ),
+              Text(lst[index],
+                  textAlign: TextAlign.center,
+                  style: style),
+            ],
           ),
         ),
       ),

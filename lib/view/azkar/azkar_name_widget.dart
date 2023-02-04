@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/constant/images_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
-import 'package:quran_project/view/azkar/azkar_details_view.dart';
+import 'package:quran_project/view/azkar/azkar_details/azkar_details_view.dart';
 import '../../constant/azkar.dart';
 import '../../models/zekr_model.dart';
 

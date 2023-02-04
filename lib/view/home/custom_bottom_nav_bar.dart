@@ -78,7 +78,14 @@ final int index;
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-           ImageIcon(
+        index==0?  Icon(Icons.home,
+        color: index== Provider.of<BottomNavProvider>(context).currentIndex?
+        AppColorsConstant.primaryColor : AppColorsConstant.grey,
+        ) :
+
+        index== 4? Icon(Icons.more_horiz,color:
+        index== Provider.of<BottomNavProvider>(context).currentIndex?
+        AppColorsConstant.primaryColor : AppColorsConstant.grey,) :ImageIcon(
           AssetImage(img),
             color:    index== Provider.of<BottomNavProvider>(context).currentIndex?
                AppColorsConstant.primaryColor : AppColorsConstant.grey

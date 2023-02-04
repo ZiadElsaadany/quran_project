@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width*0.05 ,
-        vertical:  MediaQuery.of(context).size.height*0.00
+            vertical:  MediaQuery.of(context).size.height*0.00
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,11 +31,11 @@ class HomeViewBody extends StatelessWidget {
                       Icon(Icons.date_range,color: AppColorsConstant.grey,),
                       SizedBox(width: 5,),
                       Text('الاربعاء 7 شعبان 1443',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-              color: AppColorsConstant.grey,
-                        fontWeight: FontWeight.bold
-                      ),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: AppColorsConstant.grey,
+                            fontWeight: FontWeight.bold
+                        ),
                       ),
                     ],
                   ),
@@ -57,31 +57,31 @@ class HomeViewBody extends StatelessWidget {
             SizedBox(height: MediaQuery.of(context).size.height*0.03,),
 
             const QuranDailyWidget(),
-             SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.03),),
-          Center(
-            child: Wrap(
-              children: const[
-                CustomHomeCardWidget(
-                  index: 0,
-                ),
-                CustomHomeCardWidget(
-                  index: 1,
-                ),
-                CustomHomeCardWidget(
-                  index: 2,
-                ),
-                CustomHomeCardWidget(
-                  index: 3,
-                ),
-                CustomHomeCardWidget(
-                  index: 4,
-                ),
-                CustomHomeCardWidget(
-                  index: 5,
-                ),
-              ],
+            SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.03),),
+            Center(
+              child: Wrap(
+                children: const[
+                  CustomHomeCardWidget(
+                    index: 0,
+                  ),
+                  CustomHomeCardWidget(
+                    index: 1,
+                  ),
+                  CustomHomeCardWidget(
+                    index: 2,
+                  ),
+                  CustomHomeCardWidget(
+                    index: 3,
+                  ),
+                  CustomHomeCardWidget(
+                    index: 4,
+                  ),
+                  CustomHomeCardWidget(
+                    index: 5,
+                  ),
+                ],
+              ),
             ),
-          ),
             Center(
               child: Image.asset(ImageConstant.image,
                 width:returnWidthMediaQuery(ctx: context, size: 0.28),
