@@ -5,6 +5,8 @@ import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
 import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/home/home_view.dart';
+import 'package:quran_project/view/names_of_allah/names_allah_content_view.dart';
+import 'package:quran_project/view/names_of_allah/names_of_allah_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
 import 'package:quran_project/view/sebha/sebha_details/sebha_details_view.dart';
 import 'package:quran_project/view/sebha/sebha_view.dart';
@@ -47,6 +49,7 @@ class QuranApp extends StatelessWidget {
         SebhaView.id:(cts) =>const SebhaView(),
         AzkarView.id : (  ctx ) => const AzkarView(),
         SebhaDetailsView.id : (  ctx ) => const SebhaDetailsView(),
+        NamesOfAllahView.id:(ctx)=> const NamesOfAllahView(),
       },
     );
   }

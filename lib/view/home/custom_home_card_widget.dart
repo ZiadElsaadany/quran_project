@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/size_constant.dart';
+import 'package:quran_project/view/names_of_allah/names_of_allah_view.dart';
+import 'package:quran_project/view/quran/names/names_quran_view.dart';
 
 import 'package:quran_project/view/sebha/sebha_view.dart';
 import 'package:quran_project/view/zakah/zakah_view.dart';
@@ -37,7 +39,9 @@ final int index;
 
             index==0 ? SebhaView.id :
             index==4?
-            AzkarView.id :   ZakahView.id);
+            AzkarView.id :
+             index==6?
+             NamesOfAllahView.id:ZakahView.id);
       } ,
       child: SizedBox(
         height: returnHeightMediaQuery(ctx: context, size: 0.15),
