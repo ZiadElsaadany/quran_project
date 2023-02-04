@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../constant/images_constant.dart';
-import '../../constant/size_constant.dart';
-import '../azkar/azkar_name_widget.dart';
 import '../home/custom_home_card_widget.dart';
 
 class MoreViewBody extends StatelessWidget {

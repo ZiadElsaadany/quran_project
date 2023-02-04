@@ -4,6 +4,7 @@ import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
+import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/doaa/doaa_view.dart';
 import 'package:quran_project/view/home/home_view.dart';
@@ -52,7 +53,8 @@ class QuranApp extends StatelessWidget {
         AzkarView.id : (  ctx ) => const AzkarView(),
         SebhaDetailsView.id : (  ctx ) => const SebhaDetailsView(),
         NamesOfAllahView.id:(ctx)=> const NamesOfAllahView(),
-        DoaaView.id:(ctx)=>const DoaaView()
+        DoaaView.id:(ctx)=>const DoaaView(),
+        AhadethView.id:(ctx)=>const AhadethView(),
       },
     );
   }

@@ -58,7 +58,7 @@ class DoaaCard extends StatelessWidget {
             Padding(
               padding:  EdgeInsets.symmetric(
                   horizontal: returnWidthMediaQuery(ctx: context, size: 0.07) ,
-                  vertical: returnHeightMediaQuery(ctx: context, size: 0.055)
+                  vertical: returnHeightMediaQuery(ctx: context, size: 0.05)
               ),
               child: Text(
                 content,

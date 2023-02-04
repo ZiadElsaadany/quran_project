@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/size_constant.dart';
+import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/doaa/doaa_view.dart';
 import 'package:quran_project/view/names_of_allah/names_of_allah_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
@@ -39,6 +40,7 @@ final int index;
         Navigator.pushNamed(context,
 
             index==0 ? SebhaView.id :
+                index==1? AhadethView.id:
             index==4?
             AzkarView.id :
              index==6?
