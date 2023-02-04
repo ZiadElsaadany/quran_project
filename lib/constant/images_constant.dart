@@ -19,4 +19,5 @@ class ImageConstant {
   static const String massaIcon = 'asset/images/img_13.png';
   static const String nomIcon = 'asset/images/img_14.png';
   static const String azkarAfterNomIcon = 'asset/images/img_15.png';
+  static const String emptyDoaa = 'asset/images/img_16.png';
 }
