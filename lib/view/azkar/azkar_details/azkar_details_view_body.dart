@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/images_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
+import 'package:quran_project/view/widgets/custom_elevated_button.dart';
 
 import '../../../constant/azkar.dart';
 
@@ -17,10 +18,8 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
   int index= 0 ; // index of each zekr
   int finishZekr= 0;
 
-
   @override
   Widget build(BuildContext context) {
-
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Column(
@@ -44,7 +43,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
                   ),
                    Text('عدد الأذكار',
                   style: TextStyle(
-                    fontSize: returnHeightMediaQuery(ctx: context, size:0.01 )
+                    fontSize: returnHeightMediaQuery(ctx: context, size:0.03)
                   ),
                   )
                 ],
@@ -61,41 +60,24 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
 
 
 
-          Container(
-            decoration: const BoxDecoration(
-                color: Colors.blue
-            ),
-            child: TextButton(
+ CustomElevatedButtonOfSebha
+   (
+     widget:  const Text('تكرار',style: TextStyle(color: Colors.white),
 
-              child: const Text('تكرار',style: TextStyle(color: Colors.white),
+     ),
+     horizontal: 0.1,
+     vertical: 0.01,
+     borderRadius: 0,
 
-              ),
-              onPressed: ( ) {
-                debugPrint ('finish = $finishZekr');
-                if(azkarList[widget.indexOfZekr]['azkar1'][index]['number'] > 0  ) {
-                  azkarList[widget.indexOfZekr]['azkar1'][index]['number']-- ;
-                  index++;
-                }
-                if(index<azkarList[widget.indexOfZekr]['azkar1'].length  &&  azkarList[widget.indexOfZekr]['azkar1'][index]['number']==0
-                    && finishZekr >= azkarList[widget.indexOfZekr]['azkar1'].length
-                ){
-                  finishZekr ++;
-                  if(index<azkarList[widget.indexOfZekr]['azkar1'].length-1) {
-                    index++;
-                  }
-                }
-                if(finishZekr >= azkarList[widget.indexOfZekr]['azkar1'].length ){
-                  return ;
-                }
-                setState(() {});
-              },
+   onPressed: ( ) {
 
-            ),
-          ),
+     fun();
+   },
+ ) ,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text( ' التكرار ${  azkarList[widget.indexOfZekr]['azkar1'][index]['number']}') ,
+              Text( ' التكرار ${azkarList[widget.indexOfZekr]['azkar1'][index]['total']}  ') ,
 
             ],
           ),
@@ -103,5 +85,28 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
       ),
     );
   }
+
+  fun(){
+    if( index <azkarList[widget.indexOfZekr]['azkar1'].length) {
+
+      if(azkarList[widget.indexOfZekr]['azkar1'][index]['number'] ==  1 )
+      {
+        if(index < azkarList[widget.indexOfZekr]['azkar1'].length-1){
+          index++;
+        }
+
+        if(finishZekr<azkarList[widget.indexOfZekr]['azkar1'].length ) { finishZekr++ ;}
+        setState(() {});
+      }
+
+
+      else{
+        azkarList[widget.indexOfZekr]['azkar1'][index]['number']-- ;
+      }
+
+    }
+    setState(() {});
+  }
+
 }
 
