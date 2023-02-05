@@ -20,7 +20,9 @@ class NamedQuranViewBody extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Column(
            children:  [
- CustomTextFiled(hintText: 'ابحث عن اسم السورة الذي تريدها..',
+ CustomTextFiled(
+     mxLines: 1,
+     hintText: 'ابحث عن اسم السورة الذي تريدها..',
 contentPadding: 0.014,
 icon: const Icon(Icons.search,color: AppColorsConstant.primaryColor,
 

@@ -9,14 +9,14 @@ import '../../../controller/providers/sebha_provider.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_text_field.dart';
 
-class AlertForm extends StatefulWidget {
-  const AlertForm({Key? key}) : super(key: key);
+class AlertSebhaForm extends StatefulWidget {
+  const AlertSebhaForm({Key? key}) : super(key: key);
 
   @override
-  State<AlertForm> createState() => _AlertFormState();
+  State<AlertSebhaForm> createState() => _AlertSebhaFormState();
 }
 
-class _AlertFormState extends State<AlertForm> {
+class _AlertSebhaFormState extends State<AlertSebhaForm> {
   GlobalKey<FormState> keyForm = GlobalKey<FormState>();
 
   AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
@@ -31,6 +31,7 @@ class _AlertFormState extends State<AlertForm> {
           return Column(
             children: [
               CustomTextFiled(
+                mxLines: 2,
                 autovalidateMode: autoValidateMode,
                 validator: (value) {
                   if (value == null || value.isEmpty) {

@@ -41,7 +41,12 @@ class NewsSalah extends StatelessWidget {
                   height: returnHeightMediaQuery(ctx: context, size: 0.04),
                   ),
                   SizedBox(width: 10,),
-                  Text('الصلاة التالية   ',
+                   Text('الصلاة التالية   ',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.025) ,
+                      fontWeight: FontWeight.bold
+                    ),
 
                   ),
                   Text('( ${Provider.of<PrayingApi>(context,listen: false).getPrayingName()} )',

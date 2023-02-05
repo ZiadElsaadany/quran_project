@@ -1,12 +1,10 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quran_project/view/sebha/sebha_details/alert_form_new_sebha.dart';
 import '../../constant/color_constant.dart';
 import '../../constant/size_constant.dart';
-
 class AddSebha {
-  static showDialogFunction(context) {
+  static showDialogFunction(context, Widget widget) {
     return AwesomeDialog(
       borderSide: const BorderSide(
         color: AppColorsConstant.primaryColor,
@@ -23,7 +21,7 @@ class AddSebha {
           padding: EdgeInsets.symmetric(
               horizontal: returnWidthMediaQuery(ctx: context, size: 0.04),
               vertical: returnHeightMediaQuery(ctx: context, size: 0.025)),
-          child: const AlertForm()),
+          child:  widget),
       // btnOkOnPress: () {},
     ).show();
   }

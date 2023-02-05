@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
 
 import 'package:quran_project/view/sebha/add_sebha.dart';
+import 'package:quran_project/view/sebha/sebha_details/alert_form_new_sebha.dart';
 import 'package:quran_project/view/sebha/sebha_details/sebha_details_view.dart';
 import 'package:quran_project/view/sebha/sebha_name_container.dart';
 
@@ -31,7 +32,7 @@ final List<String> sebhaList =
                Provider.of<SebhaProvider>(context,listen: false).changeArgs(index);
             index!=6 ? Navigator.pushNamed(context, SebhaDetailsView.id,
                arguments: index):
-               AddSebha.showDialogFunction(context);
+               AddSebha.showDialogFunction(context,const AlertSebhaForm());
              },
             child: SebhaNameContainer(
               txt: sebhaList[index],

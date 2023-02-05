@@ -35,7 +35,7 @@ class _SalahTimingScreenState extends State<SalahTimingScreen> {
       appBar: customAppBar(context, 'مواعيد الصلاة'),
       body: Consumer<PrayingApi>(
           builder: (context,provider,_) {
-            return          provider.isGetTime ? const Center(child: CircularProgressIndicator(
+            return          provider.isGetTime  || provider.salahTime == null || provider.jsonRes.isEmpty? const Center(child: CircularProgressIndicator(
               color: AppColorsConstant.primaryColor,
             )): Padding(
               padding: const EdgeInsets.all(8.0),
