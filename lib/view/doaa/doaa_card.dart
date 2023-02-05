@@ -12,9 +12,8 @@ class DoaaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:  EdgeInsets.symmetric(
-
-        horizontal: returnWidthMediaQuery(ctx: context, size: 0.05) ,
-        vertical: returnHeightMediaQuery(ctx: context, size: 0.01) ,
+        horizontal: returnWidthMediaQuery(ctx: context, size: 0.07) ,
+        vertical: returnHeightMediaQuery(ctx: context, size: 0.004) ,
       ),
       child: Card(
         elevation: 5,
@@ -38,13 +37,15 @@ class DoaaCard extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Text(title ,
-                    style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold
+                  Expanded(
+                    child: Text(title ,
+        maxLines: 2,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
-                  const Spacer(),
                   IconButton(icon: const Icon( Icons.save) ,
                     onPressed: ( ) { },
                     color: Colors.white,),
@@ -58,7 +59,7 @@ class DoaaCard extends StatelessWidget {
             Padding(
               padding:  EdgeInsets.symmetric(
                   horizontal: returnWidthMediaQuery(ctx: context, size: 0.07) ,
-                  vertical: returnHeightMediaQuery(ctx: context, size: 0.05)
+                  vertical: returnHeightMediaQuery(ctx: context, size: 0.03)
               ),
               child: Text(
                 content,

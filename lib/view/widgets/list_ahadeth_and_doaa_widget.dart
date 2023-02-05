@@ -8,7 +8,7 @@ class ListAhadethAndDoaa extends StatelessWidget {
   const ListAhadethAndDoaa({Key? key, required this.title, required this.content}) : super(key: key);
 
 
-   final  String title;
+   final String title;
    final String content;
 
   @override
@@ -19,8 +19,8 @@ class ListAhadethAndDoaa extends StatelessWidget {
         return index == 9? Column(
           children: [
           DoaaCard(
-          title:title,
-          content: content,
+              title:title,
+              content: content
         ),
             Image.asset(ImageConstant.image,
               height: returnHeightMediaQuery(ctx: context, size: 0.1),
@@ -29,7 +29,7 @@ class ListAhadethAndDoaa extends StatelessWidget {
           ],
         )   :  DoaaCard(
           title:title,
-          content: content,
+          content: content
         );
       },
       itemCount: 10,

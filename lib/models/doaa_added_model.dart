@@ -1,15 +1,14 @@
 class DoaaAddedModel{
 
 
-  final int id  ;
-  final String doaaName;
-  final String doaaContent;
+   String ? doaaName;
+   String ? doaaContent;
 
   DoaaAddedModel(
   {
-    required  this.id,
-    required this.doaaContent,
-    required this.doaaName
+
+     this.doaaContent,
+     this.doaaName
 }
       );
 

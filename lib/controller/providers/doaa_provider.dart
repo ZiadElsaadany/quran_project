@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_project/models/doaa_added_model.dart';
 import '../../constant/images_constant.dart';
 
 class DoaaProvider extends ChangeNotifier {
@@ -11,8 +12,14 @@ class DoaaProvider extends ChangeNotifier {
     }
 
   }
-  List doaaAdded = [] ;
+  List<DoaaAddedModel> doaaAdded = [] ;
 
+    addInDoaaAddedList(DoaaAddedModel doaa){
+
+      doaaAdded.add(doaa);
+      notifyListeners() ;
+
+    }
 
 
   final List doaa = [

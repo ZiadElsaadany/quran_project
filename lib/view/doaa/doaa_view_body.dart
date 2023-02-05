@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
-import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/doaa/toggle_widget.dart';
 import 'package:quran_project/view/widgets/list_ahadeth_and_doaa_widget.dart';
 
+import '../../constant/images_constant.dart';
 import '../../constant/size_constant.dart';
+import 'doaa_card.dart';
 import 'empty_doaa.dart';
 
 class DoaaViewBody extends StatelessWidget {
@@ -29,7 +30,54 @@ class DoaaViewBody extends StatelessWidget {
                   child:
 
               provider.checkClick==false?
-                  const EmptyDoaa()  : const ListAhadethAndDoaa(title: 'الدعاء الاول', content: 'داء دعاء '),
+                  provider.doaaAdded==[]||provider.doaaAdded.isEmpty?
+                  const EmptyDoaa()  :
+                  ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (ctx,index) {
+                      return index == 9? Column(
+                        children: [
+                          DoaaCard(
+                            title:provider.doaaAdded[index].doaaName??'',
+                            content: provider.doaaAdded[index].doaaContent??'',
+                          ),
+                          Image.asset(ImageConstant.image,
+                            height: returnHeightMediaQuery(ctx: context, size: 0.1),
+
+                          )
+                        ],
+                      )   :  DoaaCard(
+                        title:provider.doaaAdded[index].doaaName??'',
+                        content: provider.doaaAdded[index].doaaContent??'',
+                      );
+                    },
+                    itemCount: provider.doaaAdded.length,
+                  ) :
+
+              ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (ctx,index) {
+                  return index == 9? Column(
+                    children: [
+                      DoaaCard(
+                        title:provider.doaa[index]['name'],
+                        content: provider.doaa[index]['text'],
+                      ),
+                      Image.asset(ImageConstant.image,
+                        height: returnHeightMediaQuery(ctx: context, size: 0.1),
+
+                      )
+                    ],
+                  )   :  DoaaCard(
+                    title:provider.doaa[index]['name'],
+                    content: provider.doaa[index]['text'],
+                  );
+                },
+                itemCount: provider.doaa.length,
+              )
+
+
+                ,
                 )
               ],
             ),
