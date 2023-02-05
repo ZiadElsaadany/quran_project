@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quran_project/constant/images_constant.dart';
+import 'package:quran_project/constant/ahadeth_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
-
-import '../widgets/list_ahadeth_and_doaa_widget.dart';
-
+import '../../constant/images_constant.dart';
+import '../doaa/doaa_card.dart';
 class AhadethView extends StatelessWidget {
   const AhadethView({Key? key}) : super(key: key);
 static const String id= 'ahadeth view';
@@ -19,11 +18,30 @@ static const String id= 'ahadeth view';
             SizedBox(
               height: returnHeightMediaQuery(ctx: context, size: 0.03),
             ),
-            const Expanded(
-              child: ListAhadethAndDoaa(
-                content: 'ربنا تقبل منا ',
-                title: 'الحديث الأول',
-              ),
+             Expanded(
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (ctx,index) {
+                  return index == 9? Column(
+                    children: [
+                      DoaaCard(
+                          title:ahadeth[index]['name'],
+                          content: ahadeth[index]['text']
+                      ),
+
+                      Image.asset(ImageConstant.image,
+                        height: returnHeightMediaQuery(ctx: context, size: 0.1),
+                      )
+                    ],
+                  ):
+                  DoaaCard(
+                      title:ahadeth[index]['name'],
+                      content: ahadeth[index]['text']
+                  );
+
+                  },
+                itemCount: ahadeth.length,
+              )
             ),
           ],
         ),
