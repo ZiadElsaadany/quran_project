@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/azkar.dart';
 
+import '../../view/widgets/toast.dart';
+
 class AzkarProvider extends ChangeNotifier {
 
 
@@ -18,9 +20,6 @@ class AzkarProvider extends ChangeNotifier {
   }
   clickOnCounter ( {required numOfScreen}) {
 
-    if(finishAllCounter == azkarList[numOfScreen]['azkar1'].length) {
-      return;
-    }
 
 
 if(counterForCheckIndexOfZekr < azkarList[numOfScreen]['azkar1'].length-1) {
@@ -35,6 +34,7 @@ if(counterForCheckIndexOfZekr < azkarList[numOfScreen]['azkar1'].length-1) {
     // counterForCheckIndexOfZekr = azkarList[numOfScreen]['azkar1'][counterForCheckIndexOfZekr]['total']
   }
   else{
+    azkarList[numOfScreen]['azkar1'][counterForCheckIndexOfZekr]['number']-- ;
     finishForEachZekrCounter= 0;
     counterForCheckIndexOfZekr ++ ;
     finishAllCounter++;
@@ -45,9 +45,8 @@ if(counterForCheckIndexOfZekr < azkarList[numOfScreen]['azkar1'].length-1) {
 
 }
 else {
- finishAllCounter ++;
- finishForEachZekrCounter++;
- notifyListeners();
+  Shared.returnToast('مبارك لقد انهيت ${ azkarList[numOfScreen]['name']}');
+  restart() ;
 }
     notifyListeners();
 

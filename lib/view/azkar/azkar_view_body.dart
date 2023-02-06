@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_project/constant/azkar.dart';
 import 'package:quran_project/constant/size_constant.dart';
 
 import '../../constant/images_constant.dart';
@@ -20,7 +21,7 @@ class AzkarViewBody extends StatelessWidget {
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 itemBuilder: (ctx,index)=>  AzkarNameWidget(index: index,),
-                itemCount: 8,
+                itemCount:azkarList.length,
               ),
             ),
             Center(

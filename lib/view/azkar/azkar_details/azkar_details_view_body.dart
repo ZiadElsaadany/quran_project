@@ -1,216 +1,170 @@
-
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/color_constant.dart';
-import 'package:quran_project/constant/images_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/controller/providers/azkar_provider.dart';
+import 'package:quran_project/view/azkar/azkar_details/restart_zekr.dart';
 import 'package:quran_project/view/widgets/custom_elevated_button.dart';
 
 import '../../../constant/azkar.dart';
+import 'custom_linear_percent.dart';
+import 'custom_row_counter_zeekr.dart';
 
 class AzkarDetailsViewBody extends StatelessWidget {
- final int indexOfZekr ;
+  final int indexOfZekr;
 
   const AzkarDetailsViewBody({super.key, required this.indexOfZekr});
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Consumer<AzkarProvider>(
-        builder: (context,provider,_ ) {
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+      child: Consumer<AzkarProvider>(builder: (context, provider, _) {
+        return Padding(
+          padding: EdgeInsets.only(
+            left: returnWidthMediaQuery(ctx: context, size: 0.05),
+            right: returnWidthMediaQuery(ctx: context, size: 0.05),
+            top: returnHeightMediaQuery(ctx: context, size: 0.04),
+            bottom: returnHeightMediaQuery(ctx: context, size: 0.02),
+          ),
+          child: Column(
             children: [
-
-
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Image.asset(ImageConstant.itar,
-                          height: returnHeightMediaQuery(ctx: context, size: 0.07),
-                            width: returnWidthMediaQuery(ctx: context, size: 0.1),
-
-                          ),
-                          Text('${  azkarList[indexOfZekr]['azkar1'].length}  '),
-                        ],
-                      ),
-                       Text('عدد الأذكار',
-                      style: TextStyle(
-                        fontSize: returnHeightMediaQuery(ctx: context, size:0.03)
-                      ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Image.asset(ImageConstant.itar,
-                            height: returnHeightMediaQuery(ctx: context, size: 0.07),
-                            width: returnWidthMediaQuery(ctx: context, size: 0.1),
-
-                          ),
-                          Text('${provider.finishAllCounter}  '),
-                        ],
-                      ),
-                      Text('أنهيت',
-                        style: TextStyle(
-                            fontSize: returnHeightMediaQuery(ctx: context, size:0.03)
-                        ),
-                      )
-                    ],
-                  ),
-
+                  CustomRowOfNumberOfZekr(
+                      index: azkarList[indexOfZekr]['azkar1'].length,
+                      title: "عدد الأذكار",
+                    textColor: AppColorsConstant.yellow,
+                    imgColor: AppColorsConstant.yellow,),
+                  CustomRowOfNumberOfZekr(
+                      index: provider.finishAllCounter,
+                    title: "انهيت",
+                    textColor: AppColorsConstant.grey,
+                    imgColor: AppColorsConstant.grey,),
                 ],
               ),
-
-             LinearPercentIndicator(
-               width: 376.0,
-               lineHeight: 8,
-               percent: provider.finishAllCounter/azkarList[indexOfZekr]['azkar1'].length,
-               backgroundColor: Colors.grey.withOpacity(0.4),
-               progressColor: AppColorsConstant.yellow,
-
+              SizedBox(
+                height: returnHeightMediaQuery(ctx: context, size: 0.005),
               ),
-
-           Expanded(
-             child: ListView(
-               children: [
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.start,
-                   children: [
-                     Text( azkarList[indexOfZekr]['azkar1'][provider.counterForCheckIndexOfZekr]['adi1'] ?? '',
-                       textAlign: TextAlign.start,
-                       style: TextStyle(
-                           color: AppColorsConstant.yellow,
-                           fontWeight: FontWeight.w700,
-                           fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.026)
-                       ),
-
-                     ),
-                   ],
-                 ),
-                 Text( azkarList[indexOfZekr]['azkar1'][provider.counterForCheckIndexOfZekr]['adi']??'',
-
-                     style:    TextStyle(
-                         color: AppColorsConstant.black,
-                         fontWeight: FontWeight.w600,
-                         fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.026)
-                     )
-                 ) ,
-                 Text( azkarList[indexOfZekr]['azkar1'][provider.counterForCheckIndexOfZekr]['adi2']??'',
-                     textAlign: TextAlign.center,
-                     style:    TextStyle(
-                         color: AppColorsConstant.grey,
-                         fontWeight: FontWeight.w500,
-                         fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.022)
-                     )
-                 ) ,
-               ],
-             ),
-           ),
-
+              CustomLinearPercent(
+                number1: provider.finishAllCounter,
+                number2: azkarList[indexOfZekr]['azkar1'].length,
+                color: AppColorsConstant.yellow,
+              ),
+              SizedBox(
+                height: returnHeightMediaQuery(ctx: context, size: 0.03),
+              ),
+              Expanded(
+                child: Scrollbar(
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      Text(
+                        azkarList[indexOfZekr]['azkar1']
+                                [provider.counterForCheckIndexOfZekr]['adi1'] ??
+                            '',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: AppColorsConstant.yellow,
+                            fontWeight: FontWeight.w700,
+                            fontSize: returnFontSizeMediaQuery(
+                                ctx: context, size: 0.026)),
+                      ),
+                      SizedBox(
+                        height: returnHeightMediaQuery(ctx: context, size: 0.01),
+                      ),
+                      Text(
+                          azkarList[indexOfZekr]['azkar1']
+                                  [provider.counterForCheckIndexOfZekr]['adi'] ??
+                              '',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: returnFontSizeMediaQuery(
+                                  ctx: context, size: 0.027))),
+                      SizedBox(
+                        height: returnHeightMediaQuery(ctx: context, size: 0.02),
+                      ),
+                      Text(
+                          azkarList[indexOfZekr]['azkar1']
+                                  [provider.counterForCheckIndexOfZekr]['adi2'] ??
+                              '',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: AppColorsConstant.grey,
+                              fontWeight: FontWeight.w500,
+                              fontSize: returnFontSizeMediaQuery(
+                                  ctx: context, size: 0.022))),
+                    ],
+                  ),
+                ),
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Image.asset(ImageConstant.itar,
-                            height: returnHeightMediaQuery(ctx: context, size: 0.07),
-                            width: returnWidthMediaQuery(ctx: context, size: 0.1),
-
-                          ),
-                          Text('${ azkarList[indexOfZekr]['azkar1'][provider.counterForCheckIndexOfZekr]['total']}  '),
-                        ],
-                      ),
-                      Text('التكرار',
-                        style: TextStyle(
-                            fontSize: returnHeightMediaQuery(ctx: context, size:0.03)
-                        ),
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Image.asset(ImageConstant.itar,
-                            height: returnHeightMediaQuery(ctx: context, size: 0.07),
-                            width: returnWidthMediaQuery(ctx: context, size: 0.1),
-
-                          ),
-                          Text('${provider.finishForEachZekrCounter} '),
-                        ],
-                      ),
-                      Text('أنهيت',
-                        style: TextStyle(
-                            fontSize: returnHeightMediaQuery(ctx: context, size:0.03)
-                        ),
-                      )
-                    ],
-                  ),
-
+                  CustomRowOfNumberOfZekr(
+                      index: azkarList[indexOfZekr]['azkar1']
+                          [provider.counterForCheckIndexOfZekr]['total'],
+                      title: "التكرار", textColor: AppColorsConstant.primaryColor,
+                    imgColor: AppColorsConstant.primaryColor,),
+                  CustomRowOfNumberOfZekr(
+                      index: provider.finishForEachZekrCounter, title: "انهيت",
+                    textColor: AppColorsConstant.grey,
+                    imgColor: AppColorsConstant.grey,),
                 ],
               ),
-              LinearPercentIndicator(
-                restartAnimation: true,
-                width: 376.0,
-                lineHeight: 8,
-                percent: provider.finishForEachZekrCounter/azkarList[indexOfZekr]['azkar1'][provider.counterForCheckIndexOfZekr]['total'],
-                backgroundColor: Colors.grey.withOpacity(0.4),
-                progressColor: AppColorsConstant.primaryColor,
-
+              SizedBox(
+                height: returnHeightMediaQuery(ctx: context, size: 0.002),
               ),
-
-
- Row(
-   children: [
-     Expanded(
-           child: CustomElevatedButtonOfSebha(
-               widget:  const Text('تكرار',style: TextStyle(color: Colors.white),),
-               horizontal: 0.1,
-               vertical: 0.01,
-               borderRadius: 0,
-
-             onPressed: ( ) {
-provider.clickOnCounter(numOfScreen:indexOfZekr);
-             },
-           ),
-     ),
-     Container(
-           child: IconButton(
-             icon: Icon(Icons.restart_alt),
-             onPressed: ( ) {
-             provider.restart();
-             },
-           ),
-     )
-
-   ],
- ) ,
-
-
+              SizedBox(
+                height: returnHeightMediaQuery(ctx: context, size: 0.005),
+              ),
+              CustomLinearPercent(
+                number1: provider.finishForEachZekrCounter,
+                number2: azkarList[indexOfZekr]['azkar1']
+                    [provider.counterForCheckIndexOfZekr]['total'],
+                color: AppColorsConstant.primaryColor,
+              ),
+              SizedBox(
+                height: returnHeightMediaQuery(ctx: context, size: 0.002),
+              ),
+              SizedBox(
+                width: returnWidthMediaQuery(ctx: context, size: 0.8),
+                child: const Divider(
+                  thickness: 2,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: CustomElevatedButtonOfSebha(
+                      widget: Text(
+                        'اضغط للتكرار',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: returnFontSizeMediaQuery(
+                                ctx: context, size: 0.025)),
+                      ),
+                      horizontal: 0.05,
+                      vertical: 0.012,
+                      borderRadius: 10,
+                      onPressed: () {
+                        provider.clickOnCounter(numOfScreen: indexOfZekr);
+                      },
+                    ),
+                  ),
+                  SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.05),),
+                  const RestartIcon(),
+                ],
+              ),
             ],
-          );
-        }
-      ),
+          ),
+        );
+      }),
     );
   }
 
 //   = number
-
-
 }
-
