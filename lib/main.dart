@@ -48,7 +48,12 @@ class QuranApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Cairo',
         primaryColor: AppColorsConstant.primaryColor,
+          scrollbarTheme: const ScrollbarThemeData().copyWith(
+            thumbColor: MaterialStateProperty.all(AppColorsConstant.primaryColor),
+
+          ),
           brightness: Brightness.light,
+
         appBarTheme:  const AppBarTheme(
           color: AppColorsConstant.primaryColor,
         )
