@@ -3,6 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/constant/hive_const.dart';
+import 'package:quran_project/controller/providers/azkar_provider.dart';
 import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
@@ -35,6 +36,7 @@ void main() async {
         ChangeNotifierProvider(create: (ctx)=>SebhaProvider()),
         ChangeNotifierProvider(create: (ctx)=>PrayingApi()),
         ChangeNotifierProvider(create: (ctx)=>DoaaProvider()),
+        ChangeNotifierProvider(create: (ctx)=>AzkarProvider()),
       ],
       child: const QuranApp()));
 }
