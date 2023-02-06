@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
-import 'package:quran_project/models/doaa_added_model.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 import '../../constant/size_constant.dart';
 import '../widgets/custom_elevated_button.dart';
 import '../widgets/custom_text_field.dart';
@@ -95,6 +95,7 @@ class _DialogOfDoaaFormState extends State<DialogOfDoaaForm> {
                   if(formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     provider.addInDoaaAddedList(model);
+
                     Navigator.pop(context);
 
                   }else{

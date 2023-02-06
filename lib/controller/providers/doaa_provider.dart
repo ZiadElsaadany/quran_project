@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quran_project/models/doaa_added_model.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:quran_project/constant/hive_const.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 import '../../constant/images_constant.dart';
 
 class DoaaProvider extends ChangeNotifier {
@@ -14,31 +16,32 @@ class DoaaProvider extends ChangeNotifier {
   }
   List<DoaaAddedModel> doaaAdded = [] ;
 
-    addInDoaaAddedList(DoaaAddedModel doaa){
+    addInDoaaAddedList(DoaaAddedModel doaa) async{
 
-      doaaAdded.add(doaa);
-      notifyListeners() ;
+
+      var   doaaBox = Hive.box<DoaaAddedModel>(HiveConst.doaaAddedBox);
+      await    doaaBox.add(doaa);
+      notifyListeners()   ;
 
     }
 
 
-  final List doaa = [
+
+
+    final List doaa = [
     {
       "image": ImageConstant.azanIcon,
-      "text":
-      " اللهمّ إنّي أسألك فهم النبيّين، وحفظ المرسلين والملائكة المقرّبين، برحمتك يا أرحم الرّاحمين، اللهمّ اجعل ألسنتنا عامرة بذكرك، وقلوبنا بخشيتك، وأسرارنا بطاعتك، إنّك على كلّ شيءٍ قدير، وحسبي الله ونعم الوكيل",
+      "text":" اللهمّ إنّي أسألك فهم النبيّين، وحفظ المرسلين والملائكة المقرّبين، برحمتك يا أرحم الرّاحمين، اللهمّ اجعل ألسنتنا عامرة بذكرك، وقلوبنا بخشيتك، وأسرارنا بطاعتك، إنّك على كلّ شيءٍ قدير، وحسبي الله ونعم الوكيل",
       "name": "دعاء الدراسه"
     },
     {
       "image": ImageConstant.azanIcon,
-      "text":
-      "اللهم إني أحبه حبا يجهله هو وتعلمه أنت، يا رب بقدر حبي له اسعده واحفظه ولا تريني فيه بأسا يبكيني. اللهم وفق حبيبي اللهم لا سهل إلا ما جعلته سهلا اللهم اجعل الصعب سهلا ميسرا لحبيبي. اللهم إني أسألك لحبيبي توفيقا يلازم خطاه وتيسيرا لما يخاف تعسيره يارب اجعل له من التوفيق والراحة نصيب",
+      "text":"اللهم إني أحبه حبا يجهله هو وتعلمه أنت، يا رب بقدر حبي له اسعده واحفظه ولا تريني فيه بأسا يبكيني. اللهم وفق حبيبي اللهم لا سهل إلا ما جعلته سهلا اللهم اجعل الصعب سهلا ميسرا لحبيبي. اللهم إني أسألك لحبيبي توفيقا يلازم خطاه وتيسيرا لما يخاف تعسيره يارب اجعل له من التوفيق والراحة نصيب",
       "name": "دعاء الحب"
     },
     {
       "image":  ImageConstant.azanIcon,
-      "text":
-      "اللهم بك أستعين وعليك أتوكل، اللهم ذلل لي صعوبة أمري، وسهل لي مشقته، وارزقني الخير كله أكثر مما أطلب، واصرف عني كل شر رب اشرح لي صدري ويسر لي أمري يا كريم. يا رب لا تدع أمرًا في صدري ٳلا حللته لي، ولا حلمًا سكن في قلبي طويلًا  ٳلا ويسّرته لي. اللهم أحسن عاقبتنا في الأمور كلها، وأجرنا من خزي الدنيا وعذاب الآخرة",
+      "text":"اللهم بك أستعين وعليك أتوكل، اللهم ذلل لي صعوبة أمري، وسهل لي مشقته، وارزقني الخير كله أكثر مما أطلب، واصرف عني كل شر رب اشرح لي صدري ويسر لي أمري يا كريم. يا رب لا تدع أمرًا في صدري ٳلا حللته لي، ولا حلمًا سكن في قلبي طويلًا  ٳلا ويسّرته لي. اللهم أحسن عاقبتنا في الأمور كلها، وأجرنا من خزي الدنيا وعذاب الآخرة",
       "name": "دعاء الكسل",
     },
     {
@@ -54,5 +57,4 @@ class DoaaProvider extends ChangeNotifier {
       "name": "دعاء الحزن"
     },
   ];
-
 }

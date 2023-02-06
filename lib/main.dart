@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/color_constant.dart';
+import 'package:quran_project/constant/hive_const.dart';
 import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
@@ -17,8 +19,15 @@ import 'package:quran_project/view/zakah/zakah_view.dart';
 
 import 'controller/apis/api_salahTiming.dart';
 import 'controller/providers/quran_provider.dart';
+import 'models/doaa_added_model_hive/doaa_added_model_hive.dart';
 
-void main() {
+void main() async {
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(DoaaAddedModelAdapter());
+
+  await Hive.openBox<DoaaAddedModel>(HiveConst.doaaAddedBox);
+
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (ctx)=>KoranProvider()),
