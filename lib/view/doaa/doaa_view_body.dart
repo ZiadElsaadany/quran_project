@@ -36,78 +36,83 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
           width: double.infinity,
           child: FadeAnimation(
             1,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: returnHeightMediaQuery(ctx: context, size: 0.05),
-                ),
-                const ToggleWidget(),
-                SizedBox(
-                  height: returnHeightMediaQuery(ctx: context, size: 0.03),
-                ),
-                Expanded(
-                  child: provider.checkClick == false
-                      ? provider.doaaAdded == [] || provider.doaaAdded.isEmpty
-                          ? const EmptyDoaa()
-                          : ListView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              itemBuilder: (ctx, index) {
-                                return index == provider.doaaAdded.length - 1
-                                    ? Column(
-                                        children: [
-                                          CustomDismissibleWidget(
-                                              index: index,
-                                              title: provider.doaaAdded[index]
-                                                      .doaaName ??
-                                                  '',
-                                              content: provider.doaaAdded[index]
-                                                      .doaaContent ??
-                                                  ''),
-                                          Image.asset(
-                                            ImageConstant.image,
-                                            height: returnHeightMediaQuery(
-                                                ctx: context, size: 0.1),
-                                          )
-                                        ],
-                                      )
-                                    : CustomDismissibleWidget(
-                                        index: index,
-                                        title: provider
-                                                .doaaAdded[index].doaaName ??
-                                            '',
-                                        content: provider
-                                                .doaaAdded[index].doaaContent ??
-                                            '');
-                              },
-                              itemCount: provider.doaaAdded.length,
-                            )
-                      : ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (ctx, index) {
-                            return index == provider.doaa.length - 1
-                                ? Column(
-                                    children: [
-                                      DoaaCard(
-                                        title: provider.doaa[index]['name'],
-                                        content: provider.doaa[index]['text'],
-                                      ),
-                                      Image.asset(
-                                        ImageConstant.image,
-                                        height: returnHeightMediaQuery(
-                                            ctx: context, size: 0.1),
-                                      )
-                                    ],
-                                  )
-                                : DoaaCard(
-                                    title: provider.doaa[index]['name'],
-                                    content: provider.doaa[index]['text'],
-                                  );
-                          },
-                          itemCount: provider.doaa.length,
-                        ),
-                )
-              ],
+            child: Padding(
+              padding:  EdgeInsets.symmetric(
+                horizontal: returnWidthMediaQuery(ctx: context, size: 0.05) ,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: returnHeightMediaQuery(ctx: context, size: 0.05),
+                  ),
+                  const ToggleWidget(),
+                  SizedBox(
+                    height: returnHeightMediaQuery(ctx: context, size: 0.03),
+                  ),
+                  Expanded(
+                    child: provider.checkClick == false
+                        ? provider.doaaAdded == [] || provider.doaaAdded.isEmpty
+                            ? const EmptyDoaa()
+                            : ListView.builder(
+                                physics: const BouncingScrollPhysics(),
+                                itemBuilder: (ctx, index) {
+                                  return index == provider.doaaAdded.length - 1
+                                      ? Column(
+                                          children: [
+                                            CustomDismissibleWidget(
+                                                index: index,
+                                                title: provider.doaaAdded[index]
+                                                        .doaaName ??
+                                                    '',
+                                                content: provider.doaaAdded[index]
+                                                        .doaaContent ??
+                                                    ''),
+                                            Image.asset(
+                                              ImageConstant.image,
+                                              height: returnHeightMediaQuery(
+                                                  ctx: context, size: 0.1),
+                                            )
+                                          ],
+                                        )
+                                      : CustomDismissibleWidget(
+                                          index: index,
+                                          title: provider
+                                                  .doaaAdded[index].doaaName ??
+                                              '',
+                                          content: provider
+                                                  .doaaAdded[index].doaaContent ??
+                                              '');
+                                },
+                                itemCount: provider.doaaAdded.length,
+                              )
+                        : ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (ctx, index) {
+                              return index == provider.doaa.length - 1
+                                  ? Column(
+                                      children: [
+                                        DoaaCard(
+                                          title: provider.doaa[index]['name'],
+                                          content: provider.doaa[index]['text'],
+                                        ),
+                                        Image.asset(
+                                          ImageConstant.image,
+                                          height: returnHeightMediaQuery(
+                                              ctx: context, size: 0.1),
+                                        )
+                                      ],
+                                    )
+                                  : DoaaCard(
+                                      title: provider.doaa[index]['name'],
+                                      content: provider.doaa[index]['text'],
+                                    );
+                            },
+                            itemCount: provider.doaa.length,
+                          ),
+                  )
+                ],
+              ),
             ),
           ),
         );

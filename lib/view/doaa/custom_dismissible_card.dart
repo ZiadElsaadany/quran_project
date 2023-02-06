@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/constant/size_constant.dart';
 
 import '../../controller/providers/doaa_provider.dart';
 import 'doaa_card.dart';
@@ -27,6 +29,27 @@ class CustomDismissibleWidget extends StatelessWidget {
             provider.readDoaaFromHive();
           }
         },
+        secondaryBackground: Container(
+          alignment: Alignment.centerLeft,
+          width: double.infinity,
+          decoration: const BoxDecoration(
+              color: Colors.red
+          ),
+          child:  Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: Icon(
+              Icons.delete,
+              color: Colors.white,
+              size: returnHeightMediaQuery(ctx: context, size: 0.05),
+            ),
+          ),
+        ) ,
+        background:Container(
+          alignment: Alignment.centerLeft,
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.7),
+          ),
+        ),
         child: DoaaCard(
           title: title,
           content: content,

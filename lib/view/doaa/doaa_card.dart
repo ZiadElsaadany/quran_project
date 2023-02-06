@@ -12,7 +12,6 @@ class DoaaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:  EdgeInsets.symmetric(
-        horizontal: returnWidthMediaQuery(ctx: context, size: 0.07) ,
         vertical: returnHeightMediaQuery(ctx: context, size: 0.004) ,
       ),
       child: Card(
@@ -49,10 +48,9 @@ class DoaaCard extends StatelessWidget {
                   IconButton(icon: const Icon( Icons.save) ,
                     onPressed: ( ) { },
                     color: Colors.white,),
-                  IconButton(icon: const Icon( Icons.copy) ,
-                    onPressed: ( ) { },
-                    color: Colors.white,),
-
+                 Icon( Icons.copy,
+                 color: Colors.white,
+                 ) ,
                 ],
               ),
             ),
@@ -61,8 +59,12 @@ class DoaaCard extends StatelessWidget {
                   horizontal: returnWidthMediaQuery(ctx: context, size: 0.07) ,
                   vertical: returnHeightMediaQuery(ctx: context, size: 0.03)
               ),
-              child: Text(
+              child: SelectableText(
                 content,
+                onTap: ( ) {
+                  print ('copied');
+                } ,
+
                 style: TextStyle (
                     fontWeight: FontWeight.w600,
                     fontSize: returnFontSizeMediaQuery(ctx: context,size: 0.025)
