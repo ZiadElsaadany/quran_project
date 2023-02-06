@@ -4,6 +4,7 @@ import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
 import '../../constant/images_constant.dart';
 import '../doaa/doaa_card.dart';
+import '../widgets/list_ahadeth_and_doaa_widget.dart';
 class AhadethView extends StatelessWidget {
   const AhadethView({Key? key}) : super(key: key);
 static const String id= 'ahadeth view';
@@ -28,18 +29,16 @@ static const String id= 'ahadeth view';
                           title:ahadeth[index]['name'],
                           content: ahadeth[index]['text']
                       ),
-
                       Image.asset(ImageConstant.image,
                         height: returnHeightMediaQuery(ctx: context, size: 0.1),
+
                       )
                     ],
-                  ):
-                  DoaaCard(
+                  )   :  DoaaCard(
                       title:ahadeth[index]['name'],
                       content: ahadeth[index]['text']
                   );
-
-                  },
+                },
                 itemCount: ahadeth.length,
               )
             ),

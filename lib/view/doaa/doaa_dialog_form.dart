@@ -96,7 +96,10 @@ class _DialogOfDoaaFormState extends State<DialogOfDoaaForm> {
                     formKey.currentState!.save();
                     provider.addInDoaaAddedList(model);
 
+                    provider.readDoaaFromHive();
                     Navigator.pop(context);
+
+
 
                   }else{
 

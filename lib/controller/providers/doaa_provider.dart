@@ -25,7 +25,12 @@ class DoaaProvider extends ChangeNotifier {
 
     }
 
+    readDoaaFromHive( )  {
+      var   doaaBox = Hive.box<DoaaAddedModel>(HiveConst.doaaAddedBox);
+doaaAdded  = doaaBox.values.toList();
+notifyListeners();
 
+    }
 
 
     final List doaa = [
