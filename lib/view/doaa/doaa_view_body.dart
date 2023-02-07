@@ -93,6 +93,7 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                   ? Column(
                                       children: [
                                         DoaaCard(
+                                          checkAhadethOrDoaa: true,
                                           title: provider.doaa[index]['name'],
                                           content: provider.doaa[index]['text'],
                                         ),
@@ -104,6 +105,7 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                       ],
                                     )
                                   : DoaaCard(
+                                checkAhadethOrDoaa: true,
                                       title: provider.doaa[index]['name'],
                                       content: provider.doaa[index]['text'],
                                     );

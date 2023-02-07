@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/size_constant.dart';
@@ -51,6 +50,7 @@ class CustomDismissibleWidget extends StatelessWidget {
           ),
         ),
         child: DoaaCard(
+          checkAhadethOrDoaa: true,
           title: title,
           content: content,
         ),

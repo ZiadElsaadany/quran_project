@@ -1,13 +1,19 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quran_project/controller/providers/favourites_provider.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 
 import '../../constant/color_constant.dart';
 import '../../constant/size_constant.dart';
 
 class DoaaCard extends StatelessWidget {
-  const DoaaCard({Key? key, required this.title, required this.content}) : super(key: key);
+  const DoaaCard({Key? key, required this.title, required this.content, required this.checkAhadethOrDoaa}) : super(key: key);
  final  String title;
  final  String content;
+ final bool  checkAhadethOrDoaa;
+ // true  -->fav doaa
+  // false --> fav hadeth
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,10 +51,17 @@ class DoaaCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  IconButton(icon: const Icon( Icons.save) ,
-                    onPressed: ( ) { },
+                  IconButton(icon: const Icon( Icons.favorite) ,
+                    onPressed: ( ) {
+        if(   checkAhadethOrDoaa ) {
+
+          Provider.of<FavouriteProvider>(context,listen: false).addFavDoaaList(
+            DoaaAddedModel(doaaContent:content , doaaName: title)
+          );
+        }
+                    },
                     color: Colors.white,),
-                 Icon( Icons.copy,
+                 const Icon( Icons.copy,
                  color: Colors.white,
                  ) ,
                 ],

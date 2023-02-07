@@ -17,8 +17,6 @@ class DoaaProvider extends ChangeNotifier {
   List<DoaaAddedModel> doaaAdded = [] ;
 
     addInDoaaAddedList(DoaaAddedModel doaa) async{
-
-
       var   doaaBox = Hive.box<DoaaAddedModel>(HiveConst.doaaAddedBox);
       await    doaaBox.add(doaa);
       notifyListeners()   ;
@@ -31,6 +29,8 @@ doaaAdded  = doaaBox.values.toList();
 notifyListeners();
 
     }
+
+
 
 
     final List doaa = [
