@@ -10,6 +10,7 @@ import 'package:quran_project/controller/providers/sebha_provider.dart';
 import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/doaa/doaa_view.dart';
+import 'package:quran_project/view/favourites/favourtie_view.dart';
 import 'package:quran_project/view/home/home_view.dart';
 import 'package:quran_project/view/names_of_allah/names_of_allah_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
@@ -73,7 +74,8 @@ class QuranApp extends StatelessWidget {
         NamesOfAllahView.id:(ctx)=> const NamesOfAllahView(),
         DoaaView.id:(ctx)=>const DoaaView(),
         AhadethView.id:(ctx)=>const AhadethView(),
-        SalahTimingScreen.id:(ctx)=> const SalahTimingScreen()
+        SalahTimingScreen.id:(ctx)=> const SalahTimingScreen(),
+        FavouriteView.id:(ctx)=> const FavouriteView(),
       },
     );
   }
