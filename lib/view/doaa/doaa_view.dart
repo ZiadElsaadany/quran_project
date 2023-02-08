@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
 
 import 'custom_floating_action_button.dart';

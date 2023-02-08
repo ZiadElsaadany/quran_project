@@ -15,18 +15,33 @@ class DoaaProvider extends ChangeNotifier {
 
   }
   List<DoaaAddedModel> doaaAdded = [] ;
+  List<DoaaAddedModel> favouriteDoaa= [] ;
 
     addInDoaaAddedList(DoaaAddedModel doaa) async{
       var   doaaBox = Hive.box<DoaaAddedModel>(HiveConst.doaaAddedBox);
-      await    doaaBox.add(doaa);
+    await doaaBox.add(doaa);
       notifyListeners()   ;
-
     }
 
-    readDoaaFromHive( )  {
-      var   doaaBox = Hive.box<DoaaAddedModel>(HiveConst.doaaAddedBox);
-doaaAdded  = doaaBox.values.toList();
-notifyListeners();
+
+  readDoaaFromHive( )  {
+      favouriteDoaa =[] ;
+      doaaAdded =[];
+
+       notifyListeners();
+        var   doaaBox = Hive.box<DoaaAddedModel>(HiveConst.doaaAddedBox);
+      doaaAdded = doaaBox.values.toList();
+   notifyListeners();
+      for(int i =0 ; i<doaaBox.values.toList().length ;i ++ ) {
+        notifyListeners();
+          if (doaaBox.values.toList()[i].favCheck == true) {
+            favouriteDoaa.add(doaaBox.getAt(i)??DoaaAddedModel());
+            notifyListeners();
+          }
+
+          notifyListeners();
+        }
+      notifyListeners();
 
     }
 

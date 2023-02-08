@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/ahadeth_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
+import 'package:quran_project/view/ahadeth/card_hadeth.dart';
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
 import '../../constant/images_constant.dart';
 import '../doaa/doaa_card.dart';
@@ -13,37 +15,27 @@ static const String id= 'ahadeth view';
       appBar: customAppBar(context, 'الأحاديث'),
       body:  Directionality(
         textDirection: TextDirection.rtl,
-        child: Column(
-          children:  [
-            SizedBox(
-              height: returnHeightMediaQuery(ctx: context, size: 0.03),
-            ),
-             Expanded(
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemBuilder: (ctx,index) {
-                  return index == 9? Column(
-                    children: [
-                      DoaaCard(
-                        checkAhadethOrDoaa: false,
-                          title:ahadeth[index]['name'],
-                          content: ahadeth[index]['text']
-                      ),
-                      Image.asset(ImageConstant.image,
-                        height: returnHeightMediaQuery(ctx: context, size: 0.1),
+        child: ListView.builder(
+          padding: EdgeInsets.symmetric(
+            vertical: returnHeightMediaQuery(ctx: context,size: 0.01) ,
+            horizontal:returnWidthMediaQuery(ctx: context, size: 0.03)
+          ),
+          physics: const BouncingScrollPhysics(),
+          itemBuilder: (ctx,index) {
+            return index == 9?
+            Column(
+              children: [
+            HadethCard(),
+                Image.asset(ImageConstant.image,
+                  height: returnHeightMediaQuery(ctx: context, size: 0.1),
 
-                      )
-                    ],
-                  )   :  DoaaCard(
-                    checkAhadethOrDoaa: false,
-                      title:ahadeth[index]['name'],
-                      content: ahadeth[index]['text']
-                  );
-                },
-                itemCount: ahadeth.length,
-              )
-            ),
-          ],
+                )
+              ],
+            )
+                :
+          HadethCard();
+          },
+          itemCount: ahadeth.length,
         ),
       ),
     );

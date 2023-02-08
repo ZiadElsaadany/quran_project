@@ -4,8 +4,8 @@ import '../../constant/images_constant.dart';
 import '../../constant/size_constant.dart';
 
 class EmptyDoaa extends StatelessWidget {
-  const EmptyDoaa({Key? key}) : super(key: key);
-
+  const EmptyDoaa({Key? key, required this.title}) : super(key: key);
+final String title;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,7 +16,7 @@ class EmptyDoaa extends StatelessWidget {
 
         ),
         SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.02),),
-        Text('لم تقم باضافة اى دعاء جديد',
+        Text(title,
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.w600,

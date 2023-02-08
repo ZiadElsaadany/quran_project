@@ -1,5 +1,6 @@
-import 'package:hive/hive.dart';
 
+
+import 'package:hive_flutter/hive_flutter.dart';
 
 part 'doaa_added_model_hive.g.dart';
 
@@ -11,12 +12,15 @@ class DoaaAddedModel extends HiveObject{
     @HiveField(1)
     String ? doaaContent;
 
+    @HiveField(2)
+    bool ? favCheck ;
 
   DoaaAddedModel
   (
   {
      this.doaaContent,
-     this.doaaName
+     this.doaaName,
+    this.favCheck=false
   }
 
   );

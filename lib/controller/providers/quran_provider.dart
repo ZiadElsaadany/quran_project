@@ -34,8 +34,6 @@ class KoranProvider extends ChangeNotifier {
   }
 
   makeList() {
-    // lstSearch = { } ;
-    debugPrint('search');
     for (int i = 0; i < Sowar.sowar['sowar']!.length; i++) {
       lstSearch
           .addAll({Sowar.sowar['sowar']![i]['name']: Sowar.sowar['sowar']![i]});

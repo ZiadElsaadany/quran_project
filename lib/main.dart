@@ -8,6 +8,7 @@ import 'package:quran_project/controller/providers/bottom_nav_provider.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
 import 'package:quran_project/controller/providers/favourites_provider.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
+import 'package:quran_project/models/hadeth_model/hadeth_model_hive.dart';
 import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/azkar/azkar_view.dart';
 import 'package:quran_project/view/doaa/doaa_view.dart';
@@ -28,9 +29,9 @@ void main() async {
 
   await Hive.initFlutter();
   Hive.registerAdapter(DoaaAddedModelAdapter());
-
+  Hive.registerAdapter(HadethModelAdapter());
   await Hive.openBox<DoaaAddedModel>(HiveConst.doaaAddedBox);
-  await Hive.openBox<DoaaAddedModel>(HiveConst.favDoaaBox);
+  await Hive.openBox<HadethModel>(HiveConst.doaaAddedBox);
 
   runApp(MultiProvider(
       providers: [

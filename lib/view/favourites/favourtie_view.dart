@@ -33,9 +33,7 @@ class FavouriteView extends StatelessWidget {
                    Navigator.push(context, MaterialPageRoute(builder:
                    (ctx)  {
                      return  FavouriteDetailsView(
-                       checkPage: index==1? 1 :0,
                        appBarTitle: txt[index],
-
                      );
                    }
                    ));

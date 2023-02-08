@@ -6,14 +6,15 @@ class ReturnBasmala extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text(
+      child: SelectableText(
         'بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ ',
-        style: TextStyle(
-      fontFamily: 'quran',
-            fontSize: 22,
-            color: Colors.grey
-        ),
-        textDirection: TextDirection.rtl,
+
+          style: TextStyle(
+        fontFamily: 'quran',
+              fontSize: 22,
+              color: Colors.grey
+          ),
+          textDirection: TextDirection.rtl,
       ),
     );
   }

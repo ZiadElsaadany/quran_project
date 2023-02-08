@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/size_constant.dart';
+import 'package:quran_project/controller/providers/favourites_provider.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 
 import '../../controller/providers/doaa_provider.dart';
 import 'doaa_card.dart';
@@ -8,14 +10,15 @@ import 'doaa_card.dart';
 class CustomDismissibleWidget extends StatelessWidget {
   const CustomDismissibleWidget(
       {Key? key,
-        required this.index,
-        required this.title,
-        required this.content})
+        required this.index, required this.model, this.onPressed,
+
+       })
       : super(key: key);
 
   final int index;
-  final String title;
-  final String content;
+  final DoaaAddedModel model ;
+  final Function()? onPressed;
+
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +53,13 @@ class CustomDismissibleWidget extends StatelessWidget {
           ),
         ),
         child: DoaaCard(
-          checkAhadethOrDoaa: true,
-          title: title,
-          content: content,
+          colorOfFavIcon: model.favCheck == true? Colors.red: Colors.white,
+          onPressed:onPressed ,
+          model: DoaaAddedModel(
+            doaaContent:model.doaaContent??"" ,
+            doaaName: model.doaaName??""
+          ),
+
         ),
         confirmDismiss: (d) async {
           if (d == DismissDirection.endToStart) {

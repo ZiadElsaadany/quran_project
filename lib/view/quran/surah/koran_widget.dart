@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constant/arabic_surah_number.dart';
@@ -11,7 +10,7 @@ final int index1 ;
 final int index2 ;
   @override
   Widget build(BuildContext context) {
-    return  Text.rich(
+    return  SelectableText.rich(
 
         textDirection: TextDirection.rtl,
 

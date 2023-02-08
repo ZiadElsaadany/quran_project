@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/animation/fade_animation.dart';
 import 'package:quran_project/controller/providers/doaa_provider.dart';
+import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 import 'package:quran_project/view/doaa/toggle_widget.dart';
 
 import '../../constant/images_constant.dart';
 import '../../constant/size_constant.dart';
+import '../../controller/providers/favourites_provider.dart';
 import 'custom_dismissible_card.dart';
 import 'doaa_card.dart';
 import 'empty_doaa.dart';
@@ -53,7 +55,7 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                   Expanded(
                     child: provider.checkClick == false
                         ? provider.doaaAdded == [] || provider.doaaAdded.isEmpty
-                            ? const EmptyDoaa()
+                            ? const EmptyDoaa(title: 'لم تقم باضافة اى دعاء جديد',)
                             : ListView.builder(
                                 physics: const BouncingScrollPhysics(),
                                 itemBuilder: (ctx, index) {
@@ -62,12 +64,17 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                           children: [
                                             CustomDismissibleWidget(
                                                 index: index,
-                                                title: provider.doaaAdded[index]
-                                                        .doaaName ??
-                                                    '',
-                                                content: provider.doaaAdded[index]
-                                                        .doaaContent ??
-                                                    ''),
+                                                 onPressed: (){
+                                                   provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
+                                                   Provider.of<FavouriteProvider>(context,listen: false).changeIconColor(
+                                                       check:   provider.doaaAdded[index].favCheck,
+                                                   );
+                                            provider.doaaAdded[index].save();
+                                                   setState(() {});
+
+                                                 },
+                                                 model: provider.doaaAdded[index],
+                                            ),
                                             Image.asset(
                                               ImageConstant.image,
                                               height: returnHeightMediaQuery(
@@ -76,13 +83,20 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                           ],
                                         )
                                       : CustomDismissibleWidget(
+                                    onPressed: (){
+                                      provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
+                                      Provider.of<FavouriteProvider>(context,listen: false).changeIconColor(
+                                          check:   provider.doaaAdded[index].favCheck
+                                      );
+                                      provider.doaaAdded[index].save();
+                                      setState(() {
+
+                                      });
+
+                                    },
                                           index: index,
-                                          title: provider
-                                                  .doaaAdded[index].doaaName ??
-                                              '',
-                                          content: provider
-                                                  .doaaAdded[index].doaaContent ??
-                                              '');
+                                  model:provider.doaaAdded[index],
+                                  );
                                 },
                                 itemCount: provider.doaaAdded.length,
                               )
@@ -93,9 +107,22 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                   ? Column(
                                       children: [
                                         DoaaCard(
-                                          checkAhadethOrDoaa: true,
-                                          title: provider.doaa[index]['name'],
-                                          content: provider.doaa[index]['text'],
+                                  onPressed: () {
+                                    provider.doaaAdded[index].favCheck =
+                                    !(provider.doaaAdded[index].favCheck ??
+                                        false);
+                                    Provider.of<FavouriteProvider>(
+                                        context, listen: false).changeIconColor(
+                                        check: provider.doaaAdded[index]
+                                            .favCheck
+                                    );
+                                  }
+                                ,
+                                          model: DoaaAddedModel (
+                                            doaaName:provider.doaa[index]['name'] ,
+                                            doaaContent: provider.doaa[index]['text']
+                                          ),
+
                                         ),
                                         Image.asset(
                                           ImageConstant.image,
@@ -105,9 +132,21 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                       ],
                                     )
                                   : DoaaCard(
-                                checkAhadethOrDoaa: true,
-                                      title: provider.doaa[index]['name'],
-                                      content: provider.doaa[index]['text'],
+                                    onPressed: () {
+                                      provider.doaaAdded[index].favCheck =
+                                      !(provider.doaaAdded[index].favCheck ??
+                                          false);
+                                      Provider.of<FavouriteProvider>(
+                                          context, listen: false)
+                                          .changeIconColor(
+                                          check: provider.doaaAdded[index]
+                                              .favCheck
+                                      );
+                                    },
+                                model: DoaaAddedModel(
+                                  doaaContent: provider.doaa[index]['text'],
+                                  doaaName:  provider.doaa[index]['name']
+                                ),
                                     );
                             },
                             itemCount: provider.doaa.length,

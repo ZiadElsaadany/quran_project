@@ -100,7 +100,6 @@ class _DialogOfDoaaFormState extends State<DialogOfDoaaForm> {
                     Navigator.pop(context);
 
 
-
                   }else{
 
                     autoValidateMode1 = AutovalidateMode.always;
