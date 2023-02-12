@@ -13,8 +13,9 @@ class CustomLinearPercent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         LinearPercentIndicator(
-          width: returnWidthMediaQuery(ctx: context, size: 0.9),
 
+          width: returnWidthMediaQuery(ctx: context, size: 0.9),
+         isRTL: true,
           lineHeight:returnHeightMediaQuery(ctx: context, size: 0.01),
           percent: number1/number2,
           backgroundColor: Colors.grey.withOpacity(0.4),

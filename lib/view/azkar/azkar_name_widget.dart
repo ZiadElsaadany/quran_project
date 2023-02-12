@@ -37,7 +37,7 @@ AzkarDetailsView(title: zekr.title,index: index,);
             Text(zekr.title,
               style: TextStyle (
                 fontWeight:FontWeight.bold, 
-                fontSize: returnHeightMediaQuery(ctx: context, size: 0.021)
+                fontSize: returnHeightMediaQuery(ctx: context, size: 0.02)
               ),
             ),
             const Spacer(),

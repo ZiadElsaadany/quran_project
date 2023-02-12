@@ -18,16 +18,23 @@ class AzkarViewBody extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemBuilder: (ctx,index)=>  AzkarNameWidget(index: index,),
+                itemBuilder: (ctx,index)=>
+                    index ==azkarList.length-1?
+                        Column(
+                          children: [
+                            AzkarNameWidget(index: index,),
+                            Center(
+                              child: Image.asset(ImageConstant.image,
+                                height: MediaQuery.of(context).size.height*0.08,
+                              ),
+                            ),
+                          ],
+                        )
+                        :AzkarNameWidget(index: index,),
                 itemCount:azkarList.length,
               ),
             ),
-            Center(
-              child: Image.asset(ImageConstant.image,
-                width: MediaQuery.of(context).size.width*0.2,
-                height: MediaQuery.of(context).size.height*0.08,
-              ),
-            ),
+
             SizedBox(height: returnHeightMediaQuery(ctx: context, size: 0.04),),
           ],
         ),

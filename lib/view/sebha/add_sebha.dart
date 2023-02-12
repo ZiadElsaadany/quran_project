@@ -21,7 +21,8 @@ class AddSebha {
           padding: EdgeInsets.symmetric(
               horizontal: returnWidthMediaQuery(ctx: context, size: 0.04),
               vertical: returnHeightMediaQuery(ctx: context, size: 0.025)),
-          child:  widget),
+          child:  widget
+      ),
       // btnOkOnPress: () {},
     ).show();
   }

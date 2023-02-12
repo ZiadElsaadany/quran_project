@@ -19,6 +19,16 @@ class CustomRowOfNumberOfZekr extends StatelessWidget {
   Widget build(BuildContext context) {
     return      Row(
       children: [
+        Text(title,
+          style: TextStyle(
+              color: textColor,
+              fontWeight: FontWeight.bold,
+              fontSize: returnHeightMediaQuery(ctx: context, size:0.023)
+          ),
+        ),
+        SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.01),),
+
+
         Stack(
           alignment: Alignment.center,
           children: [
@@ -37,15 +47,7 @@ class CustomRowOfNumberOfZekr extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.01),),
 
-        Text(title,
-          style: TextStyle(
-            color: textColor,
-              fontWeight: FontWeight.bold,
-              fontSize: returnHeightMediaQuery(ctx: context, size:0.023)
-          ),
-        )
       ],
     );
   }
