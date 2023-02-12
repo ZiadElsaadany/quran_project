@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_project/constant/size_constant.dart';
-import 'package:quran_project/controller/providers/favourites_provider.dart';
 import 'package:quran_project/models/doaa_added_model_hive/doaa_added_model_hive.dart';
 
 import '../../controller/providers/doaa_provider.dart';

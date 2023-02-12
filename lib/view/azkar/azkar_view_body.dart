@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/azkar.dart';
 import 'package:quran_project/constant/size_constant.dart';
-
 import '../../constant/images_constant.dart';
 import 'azkar_name_widget.dart';
-
 class AzkarViewBody extends StatelessWidget {
   const AzkarViewBody({Key? key}) : super(key: key);
 

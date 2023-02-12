@@ -1,24 +1,29 @@
 import 'package:hive_flutter/adapters.dart';
+import 'package:quran_project/constant/ahadeth_constant.dart';
 
-part 'hadeth_model_hive.g.dart';
-@HiveType(typeId: 1)
 class HadethModel extends HiveObject {
 
-  @HiveField(0)
   String?  title ;
-  @HiveField(1)
   String?  content ;
-  @HiveField(2)
+  String? start ;
 
-  String?  type ;  // true:favourite     false:not favourite
-
-HadethModel(
+  String? end;
+  HadethModel(
   {
     this.content,
     this.title ,
-    this.type
+    this.start,
+    this.end
 }
     );
+factory HadethModel.c( {required int index })  {
+  return HadethModel(
+    content:ahadeth[index]['text'] ,
+    title:ahadeth[index]['name'] ,
+    end:ahadeth[index]['end'] ,
+    start:ahadeth[index]['start']
+  );
+}
 
 
 

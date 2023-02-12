@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/ahadeth/ahadeth_view.dart';
 import 'package:quran_project/view/doaa/doaa_view.dart';
-import 'package:quran_project/view/favourites/favourtie_view.dart';
 import 'package:quran_project/view/names_of_allah/names_of_allah_view.dart';
 import 'package:quran_project/view/quran/names/names_quran_view.dart';
+import 'package:quran_project/view/radio/radio_view.dart';
 import 'package:quran_project/view/salah_timing/salah_timing_view.dart';
 
 import 'package:quran_project/view/sebha/sebha_view.dart';
 
 import '../../constant/images_constant.dart';
 import '../azkar/azkar_view.dart';
+import '../doaa_favourites/favourtie_view.dart';
 
 class CustomHomeCardWidget extends StatelessWidget {
   const CustomHomeCardWidget({Key? key, required this.index}) : super(key: key);
@@ -51,7 +52,11 @@ final int index;
                 index==10?FavouriteView.id:
 
              index==6?
-             NamesOfAllahView.id:DoaaView.id);
+             NamesOfAllahView.id:
+             index==7? DoaaView.id:
+         RadioView.id
+        );
+
       } ,
       child: SizedBox(
         height: returnHeightMediaQuery(ctx: context, size: 0.15),

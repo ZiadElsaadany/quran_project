@@ -22,4 +22,6 @@ class ImageConstant {
   static const String emptyDoaa = 'asset/images/img_16.png';
   static const String newsSalahImage = 'asset/images/img_17.png';
   static const String newsSalahIcon = 'asset/images/img_18.png';
+  static const String radioImage = 'asset/images/img_19.png';
+  static const String radioPlayImage = 'asset/images/img_20-removebg-preview.png';
 }

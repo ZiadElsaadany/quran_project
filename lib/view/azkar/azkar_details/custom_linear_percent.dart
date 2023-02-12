@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-
-import '../../../constant/color_constant.dart';
 import '../../../constant/size_constant.dart';
 
 class CustomLinearPercent extends StatelessWidget {

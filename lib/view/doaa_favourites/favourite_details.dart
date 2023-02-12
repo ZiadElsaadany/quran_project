@@ -7,8 +7,6 @@ import 'package:quran_project/view/doaa/doaa_card.dart';
 import 'package:quran_project/view/doaa/empty_doaa.dart';
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
 
-import '../../controller/providers/favourites_provider.dart';
-
 class FavouriteDetailsView extends StatefulWidget {
   const FavouriteDetailsView({Key? key, required this.appBarTitle}) : super(key: key);
 final String appBarTitle;
@@ -33,8 +31,7 @@ class _FavouriteDetailsViewState extends State<FavouriteDetailsView> {
 appBar: customAppBar(context,widget.appBarTitle ),
 
           body:
-
-              Provider.of<DoaaProvider>(context).favouriteDoaa.isNotEmpty &&
+          Provider.of<DoaaProvider>(context).favouriteDoaa.isNotEmpty &&
                   Provider.of<DoaaProvider>(context,listen: false).favouriteDoaa!=[]
       ?
           Directionality(
@@ -74,7 +71,7 @@ appBar: customAppBar(context,widget.appBarTitle ),
 
                   :
 
-              const Center(child: EmptyDoaa(title: 'لم تقم باضافة اى دعاء جديد في المفضلة',))  ,
+              const Center(child: EmptyDoaa(title: 'لم تقم باضافة اى دعاء في المفضلة',))  ,
         );
 
   }

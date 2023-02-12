@@ -7,7 +7,8 @@ import 'package:quran_project/view/home/quran_daily_widget.dart';
 import '../../constant/color_constant.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({Key? key}) : super(key: key);
+  const HomeViewBody({super.key});
+
 
   @override
   Widget build(BuildContext context) {

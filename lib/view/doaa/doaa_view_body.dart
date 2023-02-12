@@ -7,7 +7,6 @@ import 'package:quran_project/view/doaa/toggle_widget.dart';
 
 import '../../constant/images_constant.dart';
 import '../../constant/size_constant.dart';
-import '../../controller/providers/favourites_provider.dart';
 import 'custom_dismissible_card.dart';
 import 'doaa_card.dart';
 import 'empty_doaa.dart';
@@ -66,9 +65,6 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                                 index: index,
                                                  onPressed: (){
                                                    provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
-                                                   Provider.of<FavouriteProvider>(context,listen: false).changeIconColor(
-                                                       check:   provider.doaaAdded[index].favCheck,
-                                                   );
                                             provider.doaaAdded[index].save();
                                                    setState(() {});
 
@@ -85,9 +81,7 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                       : CustomDismissibleWidget(
                                     onPressed: (){
                                       provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
-                                      Provider.of<FavouriteProvider>(context,listen: false).changeIconColor(
-                                          check:   provider.doaaAdded[index].favCheck
-                                      );
+
                                       provider.doaaAdded[index].save();
                                       setState(() {
 
@@ -111,11 +105,6 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                     provider.doaaAdded[index].favCheck =
                                     !(provider.doaaAdded[index].favCheck ??
                                         false);
-                                    Provider.of<FavouriteProvider>(
-                                        context, listen: false).changeIconColor(
-                                        check: provider.doaaAdded[index]
-                                            .favCheck
-                                    );
                                   }
                                 ,
                                           model: DoaaAddedModel (
@@ -136,12 +125,6 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
                                       provider.doaaAdded[index].favCheck =
                                       !(provider.doaaAdded[index].favCheck ??
                                           false);
-                                      Provider.of<FavouriteProvider>(
-                                          context, listen: false)
-                                          .changeIconColor(
-                                          check: provider.doaaAdded[index]
-                                              .favCheck
-                                      );
                                     },
                                 model: DoaaAddedModel(
                                   doaaContent: provider.doaa[index]['text'],

@@ -26,7 +26,7 @@ class ItemOfAsmaaAllah extends StatelessWidget {
         style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: returnHeightMediaQuery(ctx: context
-                , size: 0.025)
+                , size: 0.023)
         ),
       ),
     );
