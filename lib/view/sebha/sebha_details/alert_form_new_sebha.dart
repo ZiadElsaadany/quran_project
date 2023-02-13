@@ -64,7 +64,7 @@ class _AlertSebhaFormState extends State<AlertSebhaForm> {
                   if (keyForm.currentState!.validate()) {
                     keyForm.currentState!.save();
                     Navigator.pop(context);
-                    provider.changeArgs(6);
+                    provider.changeArgs(7);
                     Navigator.pushNamed(context,
                         SebhaDetailsView.id);
                   } else {

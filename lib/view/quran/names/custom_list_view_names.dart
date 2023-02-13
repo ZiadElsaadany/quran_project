@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/animation/fade_animation.dart';
 
 import '../../../controller/providers/quran_provider.dart';
 import '../../../models/name_surah_model.dart';

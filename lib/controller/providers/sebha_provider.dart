@@ -19,12 +19,15 @@ class SebhaProvider extends ChangeNotifier{
     0, // 4
     0, // 5
     0, // 6
+    0,  //7
 
 
   ];
+
+
+
   int tasabehCounter= 0;
-
-
+  int indexForTasbehList= 0;
 
   int afterPrayingCounter = 0 ;
 
@@ -45,38 +48,53 @@ class SebhaProvider extends ChangeNotifier{
    'لا اله الا الله وحده لا شريك له له الملك وله الحمد وهو على كل شئ قدير'
  ] ;
 
- plusAfterPrayingListCounter() {
 
-   if(afterPrayingCounter   <afterPrayingList.length-1) { afterPrayingCounter ++;}
-   else  {  afterPrayingCounter=0 ;}
+ plusCounterAfterPraying( {required int index}){
+   countersOfSebha[index]++;
    notifyListeners();
+   if(countersOfSebha[index]%33==0){
+     if(afterPrayingCounter<afterPrayingList.length-1) {
+       afterPrayingCounter++;
+     }
+     else{
+       afterPrayingCounter=0 ;
+     }
+
+     notifyListeners();
+   }
+   else if(countersOfSebha[index]%100==0){
+     afterPrayingCounter= 0;
+     countersOfSebha[index]=0;
+   }
  }
- minusAfterPrayingList( ) {
-   if(afterPrayingCounter>0) tasabehCounter--;
+ plusCounterTasabeh( {required int index}){
+   countersOfSebha[index]++;
    notifyListeners();
+   if(countersOfSebha[index]%33==0){
+     if(tasabehCounter<tasbehList.length-1) {
+       tasabehCounter++;
+     }
+     else{
+       tasabehCounter=0 ;
+     }
+     notifyListeners();
+   }
  }
 
-
-  plusTasabehCounter() {
-
-    if(tasabehCounter   <tasbehList.length-1) { tasabehCounter ++;}
-    else  {  tasabehCounter=0 ;}
-   notifyListeners();
-  }
-  minusTasbehCounter( ) {
-    if(tasabehCounter>0) tasabehCounter--;
-    notifyListeners();
-  }
 
 
  plusCounter({
     required int index,
 }){
    countersOfSebha[index]++;
+
    notifyListeners();
  }
+
  restartCounter({required int index}){
    countersOfSebha[index]=0;
+   tasabehCounter = 0;
+   afterPrayingCounter=0;
    notifyListeners() ;
  }
 

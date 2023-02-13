@@ -1,9 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/azkar/azkar_details/azkar_details_view.dart';
 import '../../constant/azkar.dart';
+import '../../controller/providers/azkar_provider.dart';
 import '../../models/zekr_model.dart';
 
 class AzkarNameWidget extends StatelessWidget {
@@ -16,7 +18,8 @@ class AzkarNameWidget extends StatelessWidget {
     ZekrModel zekr = ZekrModel.c(index);
     return GestureDetector(
       onTap: ( ) {
-Navigator.push(context, MaterialPageRoute(builder: (ctx) { return
+        Provider.of<AzkarProvider>(context,listen:false).restart();
+        Navigator.push(context, MaterialPageRoute(builder: (ctx) { return
 AzkarDetailsView(title: zekr.title,index: index,);
 }));
       },

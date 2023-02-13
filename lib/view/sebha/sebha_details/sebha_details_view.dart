@@ -13,19 +13,23 @@ class SebhaDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<SebhaProvider>(
       builder: (context,provider,_) {
-        return Scaffold(
-          appBar: customAppBar(
-              context,
-             provider.args==0 ? 'الاستغفار' :
-             provider.args == 1? 'التكبير':
-             provider.args==2 ? 'التهليل'   :
-             provider.args== 3? 'الحوقلة'    :
-             provider.args ==4? 'بعد الصلاة'    :
-             provider.args == 5? 'تسابيج'     :
-             provider.args==6?
-                  "سبحة خاصة": ""
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Scaffold(
+            appBar: customAppBar(
+                context,
+               provider.args==0? "التسبيح":
+               provider.args==1 ? 'الاستغفار' :
+               provider.args == 2? 'التكبير':
+               provider.args==3 ? 'التهليل'   :
+               provider.args== 4? 'الحوقلة'    :
+               provider.args ==5? 'بعد الصلاة'    :
+               provider.args == 6? 'تسابيج'     :
+               provider.args==7?
+                    "سبحة خاصة": ""
+            ),
+            body:  SebhaViewDetailsBody(index: provider.args),
           ),
-          body:  SebhaViewDetailsBody(index: provider.args),
         );
       }
     );

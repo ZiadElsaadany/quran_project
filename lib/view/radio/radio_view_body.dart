@@ -38,45 +38,42 @@ class _RadioViewBodyState extends State<RadioViewBody> {
 
 
             if(snapShot.hasData)   {
-              return Directionality(
-                textDirection: TextDirection.rtl,
-                child:   Column(
-                  children: [
-                    SizedBox(
-                      height: returnHeightMediaQuery(ctx: context, size: 0.07),
-                    ),
-                    const Expanded(
-                        flex: 2,
-                        child: RadioHasDataView()),
-                    Expanded(
-                      child: Image.asset(ImageConstant.radioPlayImage,
-                        color: Provider.of<RadioApi>(context).playImage?Colors.deepPurple:
-                        AppColorsConstant.primaryColor,
-                        width: MediaQuery.of(context).size.width*0.8,
-
-
-                      ),
-                    ),
-                    Expanded(
+              return Column(
+                children: [
+                  SizedBox(
+                    height: returnHeightMediaQuery(ctx: context, size: 0.07),
+                  ),
+                  const Expanded(
                       flex: 2,
-                      child: ListView.builder(
-                        physics: const PageScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (ctx,index) {
-                          return SizedBox(
-                              width: MediaQuery.of(context).size.width,
-                              child: RowIconAndLabelRadio(
-                                url: snapShot.data!.radios![index].url??"",
-                                item:snapShot.data!.radios![index],
-                                audioPlayer: audioPlayer,
-                              ));
-                        }  ,
-                        itemCount:snapShot.data!.radios!.length,
-                      ),
-                    ),
+                      child: RadioHasDataView()),
+                  Expanded(
+                    child: Image.asset(ImageConstant.radioPlayImage,
+                      color: Provider.of<RadioApi>(context).playImage?Colors.deepPurple:
+                      AppColorsConstant.primaryColor,
+                      width: MediaQuery.of(context).size.width*0.8,
 
-                  ],
-                ),
+
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: ListView.builder(
+                      physics: const PageScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (ctx,index) {
+                        return SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            child: RowIconAndLabelRadio(
+                              url: snapShot.data!.radios![index].url??"",
+                              item:snapShot.data!.radios![index],
+                              audioPlayer: audioPlayer,
+                            ));
+                      }  ,
+                      itemCount:snapShot.data!.radios!.length,
+                    ),
+                  ),
+
+                ],
               );
             }
             else if(snapShot.hasError){

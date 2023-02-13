@@ -8,9 +8,12 @@ class NamesOfAllahView extends StatelessWidget {
 static const String id= 'NamesOfAllah';
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: customAppBar(context, 'أسماء الله الحسنى'),
-      body: const NamesOfAllahViewBody(),
+    return  Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: customAppBar(context, 'أسماء الله الحسنى'),
+        body: const NamesOfAllahViewBody(),
+      ),
     );
   }
 }

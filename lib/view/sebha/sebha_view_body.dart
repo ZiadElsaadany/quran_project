@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/animation/fade_animation.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
 
 import 'package:quran_project/view/sebha/add_sebha.dart';
@@ -11,6 +12,7 @@ class SebhaViewBody extends StatelessWidget {
   const SebhaViewBody({Key? key}) : super(key: key);
 final List<String> sebhaList =
   const  [
+      'تسبيح',
       'استغفار',
       'تكبير',
       'تهليل',
@@ -30,12 +32,15 @@ final List<String> sebhaList =
           return  GestureDetector(
              onTap: () {
                Provider.of<SebhaProvider>(context,listen: false).changeArgs(index);
-            index!=6 ? Navigator.pushNamed(context, SebhaDetailsView.id,
+            index!=7 ? Navigator.pushNamed(context, SebhaDetailsView.id,
                arguments: index):
                AddSebha.showDialogFunction(context,const AlertSebhaForm());
              },
-            child: SebhaNameContainer(
-              txt: sebhaList[index],
+            child: FadeAnimation(
+              index*0.2,
+              child: SebhaNameContainer(
+                txt: sebhaList[index],
+              ),
             ),
           );
         },

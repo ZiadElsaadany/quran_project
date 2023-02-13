@@ -30,118 +30,115 @@ class _DoaaViewBodyState extends State<DoaaViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Consumer<DoaaProvider>(builder: (context, provider, _) {
-        return SizedBox(
-          width: double.infinity,
-          child: FadeAnimation(
-            1,
-            child: Padding(
-              padding:  EdgeInsets.symmetric(
-                horizontal: returnWidthMediaQuery(ctx: context, size: 0.05) ,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: returnHeightMediaQuery(ctx: context, size: 0.05),
-                  ),
-                  const ToggleWidget(),
-                  SizedBox(
-                    height: returnHeightMediaQuery(ctx: context, size: 0.03),
-                  ),
-                  Expanded(
-                    child: provider.checkClick == false
-                        ? provider.doaaAdded == [] || provider.doaaAdded.isEmpty
-                            ? const EmptyDoaa(title: 'لم تقم باضافة اى دعاء جديد',)
-                            : ListView.builder(
-                                physics: const BouncingScrollPhysics(),
-                                itemBuilder: (ctx, index) {
-                                  return index == provider.doaaAdded.length - 1
-                                      ? Column(
-                                          children: [
-                                            CustomDismissibleWidget(
-                                                index: index,
-                                                 onPressed: (){
-                                                   provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
-                                            provider.doaaAdded[index].save();
-                                                   setState(() {});
+    return Consumer<DoaaProvider>(builder: (context, provider, _) {
+      return SizedBox(
+        width: double.infinity,
+        child: FadeAnimation(
+          1,
+          child: Padding(
+            padding:  EdgeInsets.symmetric(
+              horizontal: returnWidthMediaQuery(ctx: context, size: 0.05) ,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: returnHeightMediaQuery(ctx: context, size: 0.05),
+                ),
+                const ToggleWidget(),
+                SizedBox(
+                  height: returnHeightMediaQuery(ctx: context, size: 0.03),
+                ),
+                Expanded(
+                  child: provider.checkClick == false
+                      ? provider.doaaAdded == [] || provider.doaaAdded.isEmpty
+                          ? const EmptyDoaa(title: 'لم تقم باضافة اى دعاء جديد',)
+                          : ListView.builder(
+                              physics: const BouncingScrollPhysics(),
+                              itemBuilder: (ctx, index) {
+                                return index == provider.doaaAdded.length - 1
+                                    ? Column(
+                                        children: [
+                                          CustomDismissibleWidget(
+                                              index: index,
+                                               onPressed: (){
+                                                 provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
+                                          provider.doaaAdded[index].save();
+                                                 setState(() {});
 
-                                                 },
-                                                 model: provider.doaaAdded[index],
-                                            ),
-                                            Image.asset(
-                                              ImageConstant.image,
-                                              height: returnHeightMediaQuery(
-                                                  ctx: context, size: 0.1),
-                                            )
-                                          ],
-                                        )
-                                      : CustomDismissibleWidget(
-                                    onPressed: (){
-                                      provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
+                                               },
+                                               model: provider.doaaAdded[index],
+                                          ),
+                                          Image.asset(
+                                            ImageConstant.image,
+                                            height: returnHeightMediaQuery(
+                                                ctx: context, size: 0.1),
+                                          )
+                                        ],
+                                      )
+                                    : CustomDismissibleWidget(
+                                  onPressed: (){
+                                    provider.doaaAdded[index].favCheck= !(provider.doaaAdded[index].favCheck??false);
 
-                                      provider.doaaAdded[index].save();
-                                      setState(() {
+                                    provider.doaaAdded[index].save();
+                                    setState(() {
 
-                                      });
+                                    });
 
-                                    },
-                                          index: index,
-                                  model:provider.doaaAdded[index],
-                                  );
-                                },
-                                itemCount: provider.doaaAdded.length,
-                              )
-                        : ListView.builder(
-                            physics: const BouncingScrollPhysics(),
-                            itemBuilder: (ctx, index) {
-                              return index == provider.doaa.length - 1
-                                  ? Column(
-                                      children: [
-                                        DoaaCard(
+                                  },
+                                        index: index,
+                                model:provider.doaaAdded[index],
+                                );
+                              },
+                              itemCount: provider.doaaAdded.length,
+                            )
+                      : ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemBuilder: (ctx, index) {
+                            return index == provider.doaa.length - 1
+                                ? Column(
+                                    children: [
+                                      DoaaCard(
+                                onPressed: () {
+                                  provider.doaaAdded[index].favCheck =
+                                  !(provider.doaaAdded[index].favCheck ??
+                                      false);
+                                }
+                              ,
+                                        model: DoaaAddedModel (
+                                          doaaName:provider.doaa[index]['name'] ,
+                                          doaaContent: provider.doaa[index]['text']
+                                        ),
+
+                                      ),
+                                      Image.asset(
+                                        ImageConstant.image,
+                                        height: returnHeightMediaQuery(
+                                            ctx: context, size: 0.1),
+                                      )
+                                    ],
+                                  )
+                                : DoaaCard(
                                   onPressed: () {
                                     provider.doaaAdded[index].favCheck =
                                     !(provider.doaaAdded[index].favCheck ??
                                         false);
-                                  }
-                                ,
-                                          model: DoaaAddedModel (
-                                            doaaName:provider.doaa[index]['name'] ,
-                                            doaaContent: provider.doaa[index]['text']
-                                          ),
-
-                                        ),
-                                        Image.asset(
-                                          ImageConstant.image,
-                                          height: returnHeightMediaQuery(
-                                              ctx: context, size: 0.1),
-                                        )
-                                      ],
-                                    )
-                                  : DoaaCard(
-                                    onPressed: () {
-                                      provider.doaaAdded[index].favCheck =
-                                      !(provider.doaaAdded[index].favCheck ??
-                                          false);
-                                    },
-                                model: DoaaAddedModel(
-                                  doaaContent: provider.doaa[index]['text'],
-                                  doaaName:  provider.doaa[index]['name']
-                                ),
-                                    );
-                            },
-                            itemCount: provider.doaa.length,
-                          ),
-                  )
-                ],
-              ),
+                                  },
+                              model: DoaaAddedModel(
+                                doaaContent: provider.doaa[index]['text'],
+                                doaaName:  provider.doaa[index]['name']
+                              ),
+                                  );
+                          },
+                          itemCount: provider.doaa.length,
+                        ),
+                )
+              ],
             ),
           ),
-        );
-      }),
-    );
+        ),
+      );
+    });
   }
 }
 

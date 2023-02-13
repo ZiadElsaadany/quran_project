@@ -1,5 +1,4 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quran_project/constant/names_of_allah_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
@@ -12,26 +11,22 @@ class NamesOfAllahViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Directionality(
-      textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child:GridView.builder(
+    return  Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child:GridView.builder(
 
-              itemCount: names.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3 ,
-            childAspectRatio: 2.5/3
-          ), itemBuilder: (ctx,index)=>  GestureDetector(
-              onTap: ( )  {
-                showDialogFunction(context, names[index]['name'], names[index]['details ']);
-              },
-              child: ItemOfAsmaaAllah(name: names[index]['name']))),
-        ),
-      )
-
-      );
+            itemCount: names.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3 ,
+          childAspectRatio: 2.5/3
+        ), itemBuilder: (ctx,index)=>  GestureDetector(
+            onTap: ( )  {
+              showDialogFunction(context, names[index]['name'], names[index]['details ']);
+            },
+            child: ItemOfAsmaaAllah(name: names[index]['name']))),
+      ),
+    );
   }
 }
 

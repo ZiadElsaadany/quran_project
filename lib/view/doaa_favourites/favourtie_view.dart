@@ -18,11 +18,11 @@ class FavouriteView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(context, 'المفضلة'),
-      body:Directionality(
-        textDirection: TextDirection.rtl,
-        child: ListView.builder(
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: customAppBar(context, 'المفضلة'),
+        body:ListView.builder(
               padding: EdgeInsets.symmetric(vertical: returnHeightMediaQuery(ctx: context, size: 0.2),
               horizontal: returnWidthMediaQuery(ctx: context, size: 0.05)
               ),
@@ -40,7 +40,7 @@ class FavouriteView extends StatelessWidget {
                  child: SebhaNameContainer(txt:txt[index],)),
               itemCount: 2,
             )
-      )
+      ),
     );
   }
 }

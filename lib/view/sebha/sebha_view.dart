@@ -7,9 +7,12 @@ class SebhaView extends StatelessWidget {
 static const String id= 'sebha';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const SebhaViewBody(),
-      appBar: customAppBar(context, 'التسبيح'),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        body: const SebhaViewBody(),
+        appBar: customAppBar(context, 'التسبيح'),
+      ),
     );
   }
 }

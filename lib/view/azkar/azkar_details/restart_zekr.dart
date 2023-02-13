@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran_project/constant/azkar.dart';
 
 import '../../../controller/providers/azkar_provider.dart';
 

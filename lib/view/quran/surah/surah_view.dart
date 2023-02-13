@@ -12,9 +12,12 @@ class SurahView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        appBar: customAppBar(context, title),
-        body: CustomSurahViewBody(indx: indx) ,
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+          appBar: customAppBar(context, title),
+          body: CustomSurahViewBody(indx: indx) ,
+        ),
       ),
     );
   }

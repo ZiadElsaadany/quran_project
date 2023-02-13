@@ -16,13 +16,16 @@ static const String id=  'doaa ';
   Widget build(BuildContext context) {
     return Consumer<DoaaProvider>(
       builder: (context,provider,_) {
-        return Scaffold(
-          appBar: customAppBar(context, 'الأدعية'),
-          body: const DoaaViewBody(),
-          floatingActionButton:  Provider.of<DoaaProvider>(context).checkClick?
-               null :  const CustomFloatingActionButton()
-          ,
-          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+        return Directionality(
+          textDirection: TextDirection.rtl,
+          child: Scaffold(
+            appBar: customAppBar(context, 'الأدعية'),
+            body: const DoaaViewBody(),
+            floatingActionButton:  Provider.of<DoaaProvider>(context).checkClick?
+                 null :  const CustomFloatingActionButton()
+            ,
+            floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+          ),
         );
       }
     );

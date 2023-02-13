@@ -3,6 +3,7 @@ import 'package:quran_project/constant/images_constant.dart';
 import 'package:quran_project/constant/size_constant.dart';
 import 'package:quran_project/view/home/custom_home_card_widget.dart';
 import 'package:quran_project/view/home/quran_daily_widget.dart';
+import 'package:quran_project/view/widgets/custom_App_bar.dart';
 
 import '../../constant/color_constant.dart';
 
@@ -12,7 +13,8 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
+    return  Scaffold(
+      body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width*0.05 ,
@@ -92,7 +94,9 @@ class HomeViewBody extends StatelessWidget {
 
           ],
         ),
-      );
+      ),
+      appBar: customAppBar(context, 'الرئيسية'),
+    ); 
   }
 }
 

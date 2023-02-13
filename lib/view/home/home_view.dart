@@ -29,7 +29,8 @@ class _HomeViewState extends State<HomeView> {
     List<Widget> screens = [const HomeViewBody(), const NamesQuranView(),const SalahTimingScreen() , const AzkarView(), const MoreView()] ;
     return     Directionality(
       textDirection: TextDirection.rtl,
-      child: SafeArea(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
         child: Scaffold(
 
           body:screens[Provider.of<BottomNavProvider>(context).currentIndex],

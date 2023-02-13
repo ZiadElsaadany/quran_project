@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:quran_project/view/widgets/custom_App_bar.dart';
 
+import '../../../controller/providers/azkar_provider.dart';
 import 'azkar_details_view_body.dart';
 
 class AzkarDetailsView extends StatelessWidget {

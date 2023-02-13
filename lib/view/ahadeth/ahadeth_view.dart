@@ -10,9 +10,12 @@ static const String id= 'ahadeth view';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(context, 'الأحاديث'),
-      body: const HadethViewBody() ,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: customAppBar(context, 'الأحاديث'),
+        body: const HadethViewBody() ,
+      ),
     );
   }
 }

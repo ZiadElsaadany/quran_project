@@ -11,24 +11,10 @@ import '../../../constant/azkar.dart';
 import 'custom_linear_percent.dart';
 import 'custom_row_counter_zeekr.dart';
 
-class AzkarDetailsViewBody extends StatefulWidget {
+class AzkarDetailsViewBody extends StatelessWidget {
   final int indexOfZekr;
 
   const AzkarDetailsViewBody({super.key, required this.indexOfZekr});
-
-  @override
-  State<AzkarDetailsViewBody> createState() => _AzkarDetailsViewBodyState();
-}
-
-class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Future.delayed(Duration.zero, ( ) {
-      Provider.of<AzkarProvider>(context,listen:false).restart();
-
-    } ); }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +32,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomRowOfNumberOfZekr(
-                    index: azkarList[widget.indexOfZekr]['azkar1'].length,
+                    index: azkarList[indexOfZekr]['azkar1'].length,
                     title: "عدد الأذكار",
                   textColor: AppColorsConstant.yellow,
                   imgColor: AppColorsConstant.yellow,),
@@ -64,7 +50,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
               1.5,
               child: CustomLinearPercent(
                 number1: provider.finishAllCounter,
-                number2: azkarList[widget.indexOfZekr]['azkar1'].length,
+                number2: azkarList[indexOfZekr]['azkar1'].length,
                 color: AppColorsConstant.yellow,
               ),
             ),
@@ -79,9 +65,8 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
                     physics: const BouncingScrollPhysics(),
                     children: [
                       Text(
-                        azkarList[widget.indexOfZekr]['azkar1']
-                                [provider.counterForCheckIndexOfZekr]['adi1'] ??
-                            '',
+                        azkarList[indexOfZekr]['azkar1']
+                                [provider.counterForCheckIndexOfZekr]['adi1'] ?? '',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: AppColorsConstant.yellow,
@@ -93,7 +78,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
                         height: returnHeightMediaQuery(ctx: context, size: 0.01),
                       ),
                       Text(
-                          azkarList[widget.indexOfZekr]['azkar1']
+                          azkarList[indexOfZekr]['azkar1']
                                   [provider.counterForCheckIndexOfZekr]['adi'] ??
                               '',
                           textAlign: TextAlign.center,
@@ -106,7 +91,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
                         height: returnHeightMediaQuery(ctx: context, size: 0.02),
                       ),
                       Text(
-                          azkarList[widget.indexOfZekr]['azkar1']
+                          azkarList[indexOfZekr]['azkar1']
                                   [provider.counterForCheckIndexOfZekr]['adi2'] ??
                               '',
                           textAlign: TextAlign.center,
@@ -124,7 +109,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomRowOfNumberOfZekr(
-                    index: azkarList[widget.indexOfZekr]['azkar1']
+                    index: azkarList[indexOfZekr]['azkar1']
                         [provider.counterForCheckIndexOfZekr]['total'],
                     title: "التكرار", textColor: AppColorsConstant.primaryColor,
                   imgColor: AppColorsConstant.primaryColor,),
@@ -140,7 +125,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
 
             CustomLinearPercent(
               number1: provider.finishForEachZekrCounter,
-              number2: azkarList[widget.indexOfZekr]['azkar1']
+              number2: azkarList[indexOfZekr]['azkar1']
                   [provider.counterForCheckIndexOfZekr]['total'],
               color: AppColorsConstant.primaryColor,
             ),
@@ -172,7 +157,7 @@ class _AzkarDetailsViewBodyState extends State<AzkarDetailsViewBody> {
                       vertical: 0.012,
                       borderRadius: 10,
                       onPressed: () {
-                        provider.clickOnCounter(numOfScreen: widget.indexOfZekr, context: context);
+                        provider.clickOnCounter(numOfScreen: indexOfZekr, context: context);
                       },
                     ),
                   ),

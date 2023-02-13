@@ -17,91 +17,94 @@ class SebhaViewDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Padding(
-        padding:  EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width*0.03,
-          vertical: MediaQuery.of(context).size.height*0.05,
+    return Padding(
+      padding:  EdgeInsets.symmetric(
+        horizontal: MediaQuery.of(context).size.width*0.03,
+        vertical: MediaQuery.of(context).size.height*0.05,
 
-        ),
-        child: Consumer<SebhaProvider>(
-            builder: (context,provider,_) {
-              return SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    RowOfUpdateAndAdd(index: index),
-                    SizedBox(
-                      height:  MediaQuery.of(context).size.height*0.06,
-                    ),
+      ),
+      child: Consumer<SebhaProvider>(
+          builder: (context,provider,_) {
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  RowOfUpdateAndAdd(index: index),
+                  SizedBox(
+                    height:  MediaQuery.of(context).size.height*0.05,
+                  ),
 
-               index !=5 && index!=4?  Text(
-                      index ==0? 'سبحان الله' :
-                      index==1? 'الله أكبر' :
-                      index==2? 'لا اله الا الله':
-                      index==3? 'لا حول ولا قوة الا بالله':
-                      index==4? 'بعد الصلاة ' :
-                      index == 6? provider.newSebha : ""
-                      ,
-                      textAlign: TextAlign.center,
-                      style:  TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.042)
-                      ),
-                    ):
-                    RowOfListTasbeh(index: index)
+             index !=5 &&index!=6?  Text(
+                    index ==0? 'سبحان الله وبحمده،\n سبحان الله العظيم' :
+                        index==1?  "أستغفر الله وأتوب إليه":
+                    index==2? 'الله أكبر' :
+                    index==3? 'لا اله الا الله':
+                    index==4? 'لا حول ولا قوة الا بالله':
+                    index==5? 'بعد الصلاة ' :
+                    index == 7? provider.newSebha : ""
                     ,
-                    SizedBox(
-                      height:  MediaQuery.of(context).size.height*0.06,
+                    textAlign: TextAlign.center,
+                    style:  TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: returnFontSizeMediaQuery(ctx: context, size: 0.042)
                     ),
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        Image.asset(ImageConstant.outlineOfSebha1,
-                          height: MediaQuery.of(context).size.height*0.2,
-                        ),
-                        Image.asset(ImageConstant.outlineOfSebha2,
-                          height: MediaQuery.of(context).size.height*0.18,
-                        ),
+                  ):
 
-                        Text(
-                          provider.countersOfSebha[index].toArabicNumbers,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: AppColorsConstant.primaryColor,
-
-                              fontSize: MediaQuery.of(context).size.height*0.055
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height:  MediaQuery.of(context).size.height*0.17,
-                    ),
-                    CustomElevatedButtonOfSebha(
-                      horizontal: 0.35,
-                      vertical: 0.012,
-                      widget:  Image.asset(ImageConstant.fingerImage,
-                        alignment: Alignment.center,
-                        height: MediaQuery.of(context).size.height*0.06 ,
-                        width: MediaQuery.of(context).size.width*0.06,
+                  RowOfListTasbeh(index: index)
+                  ,
+                  SizedBox(
+                    height:  MediaQuery.of(context).size.height*0.06,
+                  ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(ImageConstant.outlineOfSebha1,
+                        height: MediaQuery.of(context).size.height*0.27,
                       ),
-                      onPressed: ( ) {
-                        provider.plusCounter(index: index);
-                      }, borderRadius: 20 ,
+                      Image.asset(ImageConstant.outlineOfSebha2,
+                        height: MediaQuery.of(context).size.height*0.25,
+                      ),
+
+                      Text(
+                        provider.countersOfSebha[index].toArabicNumbers,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: AppColorsConstant.primaryColor,
+
+                            fontSize: MediaQuery.of(context).size.height*0.055
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height:  MediaQuery.of(context).size.height*0.1,
+                  ),
+                  CustomElevatedButtonOfSebha(
+                    horizontal: 0.35,
+                    vertical: 0.012,
+                    widget:  Image.asset(ImageConstant.fingerImage,
+                      alignment: Alignment.center,
+                      height: MediaQuery.of(context).size.height*0.06 ,
+                      width: MediaQuery.of(context).size.width*0.06,
                     ),
-                    SizedBox(
-                      height:  MediaQuery.of(context).size.height*0.07,
-                    ),
+                    onPressed: ( ) {
+                    index!=5&&index!=6?  provider.plusCounter(index: index)
+
+                    : index==5? provider.plusCounterAfterPraying(index: index):  // after praying
+                        provider.plusCounterTasabeh(index: index); //  tasabeh
+
+                    }, borderRadius: 20 ,
+                  ),
+                  SizedBox(
+                    height:  MediaQuery.of(context).size.height*0.07,
+                  ),
 
 
-                  ],
-                ),
-              );
-            }
-        ),
+                ],
+              ),
+            );
+          }
       ),
     );
   }
@@ -124,18 +127,13 @@ class _RowOfListTasbehState extends State<RowOfListTasbeh> {
           crossAxisAlignment: WrapCrossAlignment.center,
           direction: Axis.horizontal,
           children: [
-            GestureDetector(
-              onTap: ( ) {
-             widget.index == 4?
-             provider.plusAfterPrayingListCounter() :provider.plusTasabehCounter();
-              } ,
-              child: const Icon(Icons.arrow_back_ios , color: AppColorsConstant.primaryColor,
-              ),
+            const Icon(Icons.arrow_back_ios , color: AppColorsConstant.primaryColor,
             ),
             SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.04),),
             Text(
-              widget.index == 4?
-              provider.afterPrayingList[provider.afterPrayingCounter]: provider.tasbehList[provider.tasabehCounter],
+              widget.index == 5?
+              provider.afterPrayingList[provider.afterPrayingCounter]:
+              provider.tasbehList[provider.tasabehCounter],
               textAlign: TextAlign.center,
               style:  TextStyle(
                   fontWeight: FontWeight.bold,
@@ -143,17 +141,7 @@ class _RowOfListTasbehState extends State<RowOfListTasbeh> {
               ),
 
             ) ,
-            SizedBox(width: returnWidthMediaQuery(ctx: context, size: 0.04),),
-            GestureDetector(
-              onTap: ( ) {
-            widget.index ==4?  provider.minusAfterPrayingList(): provider.minusTasbehCounter()  ;
 
-              },
-              child: const Icon(Icons.arrow_back_ios,
-                textDirection: TextDirection.ltr,
-                color: AppColorsConstant.primaryColor,
-              ),
-            )
 
 
           ],

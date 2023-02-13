@@ -9,10 +9,13 @@ class RadioView extends StatelessWidget {
 static const String id= "radio";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      //website for api --> https://mp3quran.net/ar/api
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        //website for api --> https://mp3quran.net/ar/api
 appBar: customAppBar(context, 'الراديو'),
-      body: const RadioViewBody(),
+        body: const RadioViewBody(),
+      ),
     );
   }
 }

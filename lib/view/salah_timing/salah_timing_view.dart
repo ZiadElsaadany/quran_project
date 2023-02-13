@@ -31,16 +31,17 @@ class _SalahTimingScreenState extends State<SalahTimingScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: customAppBar(context, 'مواعيد الصلاة'),
-      body: Consumer<PrayingApi>(
-          builder: (context,provider,_) {
-            return          provider.isGetTime  || provider.salahTime == null || provider.jsonRes.isEmpty? const Center(child: CircularProgressIndicator(
-              color: AppColorsConstant.primaryColor,
-            )): Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Directionality(
-                textDirection: TextDirection.rtl,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+
+      child: Scaffold(
+        appBar: customAppBar(context, 'مواعيد الصلاة'),
+        body: Consumer<PrayingApi>(
+            builder: (context,provider,_) {
+              return          provider.isGetTime  || provider.salahTime == null || provider.jsonRes.isEmpty? const Center(child: CircularProgressIndicator(
+                color: AppColorsConstant.primaryColor,
+              )): Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: ListView (
                   physics: const BouncingScrollPhysics(),
                   children: [
@@ -85,9 +86,6 @@ class _SalahTimingScreenState extends State<SalahTimingScreen> {
                       salahName: 'العشاء',
                       salahTime: provider.salahTime?.isha??''  ,
                     ),
-                    SizedBox(
-                      height: returnHeightMediaQuery(ctx: context, size: 0.03),
-                    ),
 
                     Center(
                       child: Image.asset(ImageConstant.image,
@@ -100,10 +98,10 @@ class _SalahTimingScreenState extends State<SalahTimingScreen> {
 
                   ],
                 ),
-              ),
 
-            );
-          }
+              );
+            }
+        ),
       ),
     );
   }
