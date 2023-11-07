@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran_project/animation/fade_animation.dart';
 import 'package:quran_project/controller/providers/sebha_provider.dart';
 
 import 'package:quran_project/view/sebha/add_sebha.dart';
@@ -36,11 +35,8 @@ final List<String> sebhaList =
                arguments: index):
                AddSebha.showDialogFunction(context,const AlertSebhaForm());
              },
-            child: FadeAnimation(
-              index*0.2,
-              child: SebhaNameContainer(
-                txt: sebhaList[index],
-              ),
+            child: SebhaNameContainer(
+              txt: sebhaList[index],
             ),
           );
         },

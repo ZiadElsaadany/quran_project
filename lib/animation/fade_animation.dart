@@ -1,38 +1,35 @@
-import 'package:flutter/material.dart';
-import 'package:simple_animations/multi_tween/multi_tween.dart';
-import 'package:simple_animations/stateless_animation/play_animation.dart';
-import 'package:supercharged/supercharged.dart';
-
-
-enum AniProps { opacity, translateY }
-
-class FadeAnimation extends StatelessWidget {
-  final double delay;
-  final Widget child;
-
-  const FadeAnimation(
-      this.delay, {
-        Key? key,
-        required this.child,
-      }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final tween = MultiTween<AniProps>()
-      ..add(AniProps.opacity, 0.0.tweenTo(1.0), 500.milliseconds)
-      ..add(AniProps.translateY, (-30.0).tweenTo(0.0), 500.milliseconds,
-          Curves.easeOut);
-
-    return PlayAnimation<MultiTweenValues<AniProps>>(
-      delay: Duration(milliseconds: (500 * delay).round()),
-      duration: tween.duration,
-      tween: tween,
-      child: child,
-      builder: (context, child, value) => Opacity(
-        opacity: value.get(AniProps.opacity),
-        child: Transform.translate(
-            offset: Offset(0, value.get(AniProps.translateY)), child: child),
-      ),
-    );
-  }
-}
+// import 'dart:convert';
+// import 'dart:io';
+// import 'package:easy_localization/easy_localization.dart';
+// import 'package:eve/peresentation/models/list_models.dart';
+// import 'package:file_picker/file_picker.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_bloc/flutter_bloc.dart';
+// import 'package:http/http.dart' as http;
+// import 'package:image_picker/image_picker.dart';
+// import '../../utilities/constants/api_constants.dart';
+// import '../../utilities/constants/string_constants.dart';
+// import '../album_order/album_details_row_cubit.dart';
+// import '../auth_cubit/auth_cubit.dart';
+//
+// part 'lists_state.dart';
+//
+// class ListsCubit extends Cubit<ListsState> {
+//   ListsCubit() : super(ListsInitial());
+//   ListResponseModel? dataAllMenues;
+//   AlbumSize? currentSize;
+//   BaseIdNameModel? boxYesOrNo;
+//   BaseIdNameModel? withEditOrNot;
+//   BaseIdNameModel? withPageDesigner;
+//   Extension? extension;
+//   BaseIdNameModel? withExtensionOrNot;
+//   Album? albumTypeList;
+//   BaseIdNameModel? pages;
+//
+//   DrillingType? drillingType;
+//
+//   ColorResp? colorResp;
+//   BaseIdNameModel? showDateForSend;
+//   BaseIdNameModel? photoForFamily;
+//   BaseIdNameModel? with_or_without_accessories;
+//   Si

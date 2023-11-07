@@ -28,19 +28,23 @@ void main() async {
   Hive.registerAdapter(DoaaAddedModelAdapter());
 
   await Hive.openBox<DoaaAddedModel>(HiveConst.doaaAddedBox);
+  runApp(
+      MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (ctx) => KoranProvider()),
+            ChangeNotifierProvider(create: (ctx) => BottomNavProvider()),
+            ChangeNotifierProvider(create: (ctx) => SebhaProvider()),
+            ChangeNotifierProvider(create: (ctx) => PrayingApi()),
+            ChangeNotifierProvider(create: (ctx) => DoaaProvider()),
+            ChangeNotifierProvider(create: (ctx) => AzkarProvider()),
+            ChangeNotifierProvider(create: (ctx) => RadioApi()),
+          ],
+          child: const QuranApp())
+  ) ;
 
-
-  runApp(MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (ctx)=>KoranProvider()),
-        ChangeNotifierProvider(create: (ctx)=>BottomNavProvider()),
-        ChangeNotifierProvider(create: (ctx)=>SebhaProvider()),
-        ChangeNotifierProvider(create: (ctx)=>PrayingApi()),
-        ChangeNotifierProvider(create: (ctx)=>DoaaProvider()),
-        ChangeNotifierProvider(create: (ctx)=>AzkarProvider()),
-        ChangeNotifierProvider(create: (ctx)=>RadioApi()),
-      ],
-      child: const QuranApp()));
+  //  initializeDateFormatting('ar_SA',null).then((_) {
+  //
+  // } ) ;
 }
 
 class QuranApp extends StatelessWidget {
@@ -76,7 +80,8 @@ class QuranApp extends StatelessWidget {
         AhadethView.id:      ( ctx )=> const AhadethView(),
         SalahTimingScreen.id:( ctx )=> const SalahTimingScreen(),
         FavouriteView.id:    ( ctx )=> const FavouriteView(),
-        RadioView.id: (ctx)=> const RadioView()
+        RadioView.id: (ctx)=> const RadioView(),
+        // TodoView.id:(ctx)=>const TodoView()
       },
     );
   }

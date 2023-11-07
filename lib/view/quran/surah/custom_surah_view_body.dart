@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quran_project/constant/color_constant.dart';
 import 'package:quran_project/view/quran/surah/return_basmala.dart';
-
 import '../../../constant/sowar.dart';
 import 'koran_widget.dart';
 

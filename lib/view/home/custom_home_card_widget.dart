@@ -8,6 +8,7 @@ import 'package:quran_project/view/radio/radio_view.dart';
 import 'package:quran_project/view/salah_timing/salah_timing_view.dart';
 
 import 'package:quran_project/view/sebha/sebha_view.dart';
+import 'package:quran_project/view/to_do/todo_view.dart';
 
 import '../../constant/images_constant.dart';
 import '../azkar/azkar_view.dart';
@@ -54,6 +55,7 @@ final int index;
              index==6?
              NamesOfAllahView.id:
              index==7? DoaaView.id:
+                 // index==8? TodoView.id:
          RadioView.id
         );
 

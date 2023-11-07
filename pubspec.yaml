@@ -32,8 +32,8 @@ dependencies:
   provider:
   http:
   awesome_dialog: ^3.0.2
-  simple_animations: ^4.2.0
-  supercharged: ^2.1.1
+#  simple_animations: ^4.2.0
+#  supercharged: ^2.1.1
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   percent_indicator: ^4.0.1
@@ -93,7 +93,7 @@ flutter:
         - asset: asset/fonts/Cairo-VariableFont_slnt,wght.ttf
     - family: quran
       fonts:
-       - asset: asset/fonts/me_quran.ttf
+        - asset: asset/fonts/me_quran.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
